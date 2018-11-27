@@ -8,10 +8,18 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <android.support.v7.widget.RecyclerView
+    <!--<android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/homeRecyclerView"
-        android:clickable="true"/>
+        android:clickable="true"/>-->
+
+    <FrameLayout
+        android:id="@+id/feedListFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    </FrameLayout>
 
 </android.support.constraint.ConstraintLayout>

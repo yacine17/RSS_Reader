@@ -1,9 +1,10 @@
 package com.example.yacinehc.mplrss;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -16,12 +17,12 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.yacinehc.mplrss.model.FilRSS;
+import com.example.yacinehc.mplrss.utils.SimpleDialogFragment;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, SimpleDialogFragment.OnDialogFragmentInteractionListener {
     private RecyclerView homeRecyclerView;
 
     @Override
@@ -36,8 +37,13 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                        */
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                SimpleDialogFragment simpleDialogFragment = SimpleDialogFragment.newInstance("RSS URL", "Entrez un nouveau URL");
+                simpleDialogFragment.show(fragmentTransaction, "SimpleDialogFragment");
+
             }
         });
 
@@ -50,8 +56,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        homeRecyclerView = findViewById(R.id.homeRecyclerView);
-        homeRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
 
         ArrayList<FilRSS> filRSSES = new ArrayList<>();
         FilRSS f = new FilRSS();
@@ -64,8 +69,11 @@ public class MainActivity extends AppCompatActivity
         filRSSES.add(f2);
         filRSSES.add(f1);
 
-        RSSRecycleAdapter adapter = new RSSRecycleAdapter(filRSSES);
-        homeRecyclerView.setAdapter(adapter);
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        RssListFragment rssListFragment = RssListFragment.newInstance(filRSSES);
+        fragmentTransaction.add(R.id.feedListFrameLayout, rssListFragment);
+        fragmentTransaction.commit();
+
     }
 
     @Override
@@ -123,5 +131,10 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onDialogFragmentAdd(Uri uri) {
+
     }
 }
