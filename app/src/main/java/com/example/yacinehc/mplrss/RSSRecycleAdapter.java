@@ -8,23 +8,23 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.yacinehc.mplrss.model.FilRSS;
+import com.example.yacinehc.mplrss.model.RSS;
 
 import java.util.ArrayList;
 
 public class RSSRecycleAdapter extends RecyclerView.Adapter<RSSRecycleAdapter.ViewHolder> {
-    private ArrayList<FilRSS> checkedItems;
-    private ArrayList<FilRSS> all;
+    private ArrayList<RSS> checkedItems;
+    private ArrayList<RSS> all;
     private MyOnClickListener myOnClickListener;
     private MyLongClickListener myLongClickListener;
 
-    public RSSRecycleAdapter(ArrayList<FilRSS> all) {
+
+    public RSSRecycleAdapter(ArrayList<RSS> all) {
         this.all = all;
         this.checkedItems = new ArrayList<>();
         myOnClickListener = new MyOnClickListener();
         myLongClickListener = new MyLongClickListener();
     }
-
 
     public void removeChecked() {
         this.all.removeAll(checkedItems);
@@ -32,11 +32,9 @@ public class RSSRecycleAdapter extends RecyclerView.Adapter<RSSRecycleAdapter.Vi
         notifyDataSetChanged();
     }
 
-
     private class MyOnClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            System.out.println("getCheckedCount() = " + getCheckedCount());
             if (getCheckedCount() == 0) {
                 //TODO afficher les détails du flux
             } else {
@@ -58,10 +56,10 @@ public class RSSRecycleAdapter extends RecyclerView.Adapter<RSSRecycleAdapter.Vi
         checkedRSSView.toggle();
 
         if (checkedRSSView.isChecked()) {
-            checkedItems.add(checkedRSSView.getFilRSS());
+            checkedItems.add(checkedRSSView.getRss());
             checkedRSSView.setBackground(v.getContext().getDrawable(R.drawable.ripple_checked));
         } else {
-            checkedItems.remove(checkedRSSView.getFilRSS());
+            checkedItems.remove(checkedRSSView.getRss());
             checkedRSSView.setBackground(v.getContext().getDrawable(R.drawable.ripple));
         }
     }
@@ -76,9 +74,9 @@ public class RSSRecycleAdapter extends RecyclerView.Adapter<RSSRecycleAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        FilRSS filRSS = all.get(i);
+        RSS rss = all.get(i);
 
-        viewHolder.titre.setText(filRSS.getTitre());
+        viewHolder.titre.setText(rss.getTitre());
         viewHolder.logo.setImageResource(android.R.drawable.ic_menu_send);
         viewHolder.itemView.setOnLongClickListener(myLongClickListener);
         viewHolder.itemView.setOnClickListener(myOnClickListener);

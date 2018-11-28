@@ -3,38 +3,36 @@ package com.example.yacinehc.mplrss.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class FilRSS implements Parcelable {
-    private long id;
+public class RSS implements Parcelable {
     private String link;
     private String titre;
     private String description;
 
-    public FilRSS() {
+    public RSS() {
 
     }
-    public FilRSS(long id, String link, String titre, String description) {
-        this.id = id;
+
+    public RSS(String link, String titre, String description) {
         this.link = link;
         this.titre = titre;
         this.description = description;
     }
 
-    public FilRSS(Parcel parcel) {
-        this.id = parcel.readLong();
+    public RSS(Parcel parcel) {
         this.link = parcel.readString();
         this.titre = parcel.readString();
         this.description = parcel.readString();
     }
 
-    public static final Creator<FilRSS> CREATOR = new Creator<FilRSS>() {
+    public static final Creator<RSS> CREATOR = new Creator<RSS>() {
         @Override
-        public FilRSS createFromParcel(Parcel in) {
-            return new FilRSS(in);
+        public RSS createFromParcel(Parcel in) {
+            return new RSS(in);
         }
 
         @Override
-        public FilRSS[] newArray(int size) {
-            return new FilRSS[size];
+        public RSS[] newArray(int size) {
+            return new RSS[size];
         }
     };
 
@@ -45,18 +43,9 @@ public class FilRSS implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeLong(id);
         dest.writeString(link);
         dest.writeString(titre);
         dest.writeString(description);
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getLink() {

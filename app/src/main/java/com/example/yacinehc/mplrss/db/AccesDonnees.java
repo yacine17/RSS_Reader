@@ -6,6 +6,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 
+import com.example.yacinehc.mplrss.model.RSS;
+
+import java.util.ArrayList;
+
 public class AccesDonnees {
     private ContentResolver contentResolver;
 
@@ -14,7 +18,7 @@ public class AccesDonnees {
     public final static String LINK_COLUMN = "link";
     public final static String TITLE_COLUMN = "title";
     public final static String DESCRIPTION_COLUMN = "description";
-    private final static String authority = "fr.diderot.yacinehc.mplrss";
+    private final static String authority = "fr.diderot.yacinehc.mplrssserver";
 
     public AccesDonnees(Context context) {
         contentResolver = context.getContentResolver();
@@ -35,11 +39,26 @@ public class AccesDonnees {
     }
 
 
-    public Cursor getRSSFeed() {
+    public ArrayList<RSS> getRSSFeed() {
         Uri.Builder builder = new Uri.Builder();
         builder.scheme("content").authority(authority).appendPath(RSS_TABLE);
         Uri uri = builder.build();
-        return contentResolver.query(uri, null, null, null, null);
+        Cursor cursor = contentResolver.query(uri, null, null, null, null);
+        ArrayList<RSS> list = new ArrayList<>();
+        try {
+            while (cursor.moveToNext()) {
+                System.out.println("zaezeaezaezaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+                RSS rss = new RSS(cursor.getString(cursor.getColumnIndex(AccesDonnees.LINK_COLUMN)),
+                        cursor.getString(cursor.getColumnIndex(AccesDonnees.TITLE_COLUMN)),
+                        cursor.getString(cursor.getColumnIndex(AccesDonnees.DESCRIPTION_COLUMN)));
+                list.add(rss);
+            }
+            cursor.close();
+        } catch (NullPointerException e) {
+            e.getMessage();
+        }
+
+        return list;
     }
 
 }

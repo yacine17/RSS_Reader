@@ -5,13 +5,13 @@ import android.util.AttributeSet;
 import android.widget.Checkable;
 import android.widget.LinearLayout;
 
-import com.example.yacinehc.mplrss.model.FilRSS;
+import com.example.yacinehc.mplrss.model.RSS;
 
 import java.util.Objects;
 
 public class CheckedLinearLayout extends LinearLayout implements Checkable {
     private boolean checked;
-    private FilRSS filRSS;
+    private RSS rss;
 
     public CheckedLinearLayout(Context context) {
         super(context);
@@ -44,14 +44,13 @@ public class CheckedLinearLayout extends LinearLayout implements Checkable {
         setChecked(!isChecked());
     }
 
-    public FilRSS getFilRSS() {
-        return filRSS;
+    public RSS getRss() {
+        return rss;
     }
 
-    public void setFilRSS(FilRSS filRSS) {
-        this.filRSS = filRSS;
+    public void setRss(RSS rss) {
+        this.rss = rss;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -59,12 +58,12 @@ public class CheckedLinearLayout extends LinearLayout implements Checkable {
         if (o == null || getClass() != o.getClass()) return false;
         CheckedLinearLayout that = (CheckedLinearLayout) o;
         return checked == that.checked &&
-                Objects.equals(filRSS, that.filRSS);
+                Objects.equals(rss, that.rss);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(checked, filRSS);
+        return Objects.hash(checked, rss);
     }
 }

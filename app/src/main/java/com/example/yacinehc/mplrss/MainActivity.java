@@ -1,7 +1,9 @@
 package com.example.yacinehc.mplrss;
 
+import android.app.DownloadManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
@@ -9,14 +11,14 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.yacinehc.mplrss.model.FilRSS;
+import com.example.yacinehc.mplrss.db.AccesDonnees;
+import com.example.yacinehc.mplrss.model.RSS;
 import com.example.yacinehc.mplrss.utils.SimpleDialogFragment;
 
 import java.util.ArrayList;
@@ -33,20 +35,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                        */
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                SimpleDialogFragment simpleDialogFragment = SimpleDialogFragment.newInstance("RSS URL", "Entrez un nouveau URL");
-                simpleDialogFragment.show(fragmentTransaction, "SimpleDialogFragment");
-
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -57,24 +45,16 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-
-        ArrayList<FilRSS> filRSSES = new ArrayList<>();
-        FilRSS f = new FilRSS();
-        f.setTitre("zezae");
-        FilRSS f1 = new FilRSS();
-        f1.setTitre("bvbbnbnv");
-        FilRSS f2 = new FilRSS();
-        f2.setTitre("oipoipioi");
-        filRSSES.add(f);
-        filRSSES.add(f2);
-        filRSSES.add(f1);
+        AccesDonnees accesDonnees = new AccesDonnees(this);
+        ArrayList<RSS> rssList = accesDonnees.getRSSFeed();
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        RssListFragment rssListFragment = RssListFragment.newInstance(filRSSES);
+        RssListFragment rssListFragment = RssListFragment.newInstance(rssList);
         fragmentTransaction.add(R.id.feedListFrameLayout, rssListFragment);
         fragmentTransaction.commit();
 
     }
+
 
     @Override
     public void onBackPressed() {
@@ -135,6 +115,8 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onDialogFragmentAdd(Uri uri) {
+        AccesDonnees accesDonnees = new AccesDonnees(this);
+        accesDonnees.addRSSFeed(uri.toString(), "", "");
 
     }
 }
