@@ -24,7 +24,7 @@ import com.example.yacinehc.mplrss.utils.SimpleDialogFragment;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, SimpleDialogFragment.OnDialogFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener {
     private RecyclerView homeRecyclerView;
 
     @Override
@@ -111,12 +111,5 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    @Override
-    public void onDialogFragmentAdd(Uri uri) {
-        AccesDonnees accesDonnees = new AccesDonnees(this);
-        accesDonnees.addRSSFeed(uri.toString(), "", "");
-
     }
 }

@@ -1,8 +1,17 @@
 package com.example.yacinehc.mplrss;
 
 
+import android.app.DownloadManager;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,16 +23,70 @@ import android.view.ViewGroup;
 import com.example.yacinehc.mplrss.model.RSS;
 import com.example.yacinehc.mplrss.utils.SimpleDialogFragment;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URLConnection;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
+
+import static android.content.Context.DOWNLOAD_SERVICE;
 
 
-public class RssListFragment extends Fragment {
+public class RssListFragment extends Fragment  {
     private static final String RSS_LIST = "rssList";
-
-    private ArrayList<RSS> rssList;
+    private List<Long> idList;
+    private List<RSS> rssList;
+    private DownloadManager downloadManager;
 
 
     public RssListFragment() {
+        idList = new ArrayList<>();
+    }
+
+    public void initFragment() {
+        downloadManager = (DownloadManager) getActivity().getSystemService(DOWNLOAD_SERVICE);
+
+        BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                long reference = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
+                if (idList.contains(reference)) {
+                    idList.remove(reference);
+
+                    DownloadManager.Query query = new DownloadManager.Query();
+                    query.setFilterById(reference);
+                    Cursor cursor = downloadManager.query(query);
+                    if (cursor.moveToFirst()) {
+                        String fileTitle = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_TITLE));
+                        System.out.println("fileTitle = " + fileTitle);
+                        String localPath = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI));
+                        System.out.println("localPath = " + localPath);
+                        Snackbar snackbar = Snackbar.make(getView(), "Téléchargement finie : " + fileTitle, Snackbar.LENGTH_LONG);
+                        snackbar.show();
+
+                        File file = new File(localPath);
+                        try {
+
+                            InputStream inputStream = new FileInputStream(localPath);
+                            System.out.println("URLConnection.guessContentTypeFromStream(inputStream) = " + URLConnection.guessContentTypeFromStream(inputStream));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }
+            }
+        };
+
+        getActivity().registerReceiver(broadcastReceiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+
     }
 
     public static RssListFragment newInstance(ArrayList<RSS> rssList) {
@@ -31,6 +94,7 @@ public class RssListFragment extends Fragment {
         Bundle args = new Bundle();
         args.putParcelableArrayList(RSS_LIST, rssList);
         fragment.setArguments(args);
+
         return fragment;
     }
 
@@ -46,11 +110,15 @@ public class RssListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_rss_list, container, false);
+
         RecyclerView recyclerView = view.findViewById(R.id.homeRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new RSSRecycleAdapter(rssList));
 
-        FloatingActionButton fab =  view.findViewById(R.id.fab);
+        FloatingActionButton fab = view.findViewById(R.id.fab);
+        final FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+
+        final RssListFragment thisInstance = this;
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,8 +126,8 @@ public class RssListFragment extends Fragment {
                 /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                         */
-                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 SimpleDialogFragment simpleDialogFragment = SimpleDialogFragment.newInstance("RSS URL", "Entrez un nouveau URL");
+                simpleDialogFragment.setTargetFragment(thisInstance, 0);
                 simpleDialogFragment.show(fragmentTransaction, "SimpleDialogFragment");
             }
         });
@@ -68,14 +136,23 @@ public class RssListFragment extends Fragment {
     }
 
 
-    /*public void downloadFile(Uri uri) {
-        DownloadManager downloadManager = (DownloadManager) getActivity().getSystemService(DOWNLOAD_SERVICE);
+    public void downloadFile(Uri uri) {
+
         DownloadManager.Request request = new DownloadManager.Request(uri);
 
         request.setDestinationInExternalFilesDir(getActivity(), Environment.DIRECTORY_DOWNLOADS, "mplrss");
 
-        long id = downloadManager.enqueue(request);
+        idList.add(downloadManager.enqueue(request));
+    }
 
-    }*/
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        initFragment();
+    }
+
+    public void addRss(Uri uri) {
+        downloadFile(uri);
+    }
 }

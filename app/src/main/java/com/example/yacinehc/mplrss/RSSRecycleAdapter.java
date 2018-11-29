@@ -11,15 +11,16 @@ import android.widget.TextView;
 import com.example.yacinehc.mplrss.model.RSS;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RSSRecycleAdapter extends RecyclerView.Adapter<RSSRecycleAdapter.ViewHolder> {
-    private ArrayList<RSS> checkedItems;
-    private ArrayList<RSS> all;
+    private List<RSS> checkedItems;
+    private List<RSS> all;
     private MyOnClickListener myOnClickListener;
     private MyLongClickListener myLongClickListener;
 
 
-    public RSSRecycleAdapter(ArrayList<RSS> all) {
+    public RSSRecycleAdapter(List<RSS> all) {
         this.all = all;
         this.checkedItems = new ArrayList<>();
         myOnClickListener = new MyOnClickListener();

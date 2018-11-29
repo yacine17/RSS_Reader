@@ -47,7 +47,6 @@ public class AccesDonnees {
         ArrayList<RSS> list = new ArrayList<>();
         try {
             while (cursor.moveToNext()) {
-                System.out.println("zaezeaezaezaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
                 RSS rss = new RSS(cursor.getString(cursor.getColumnIndex(AccesDonnees.LINK_COLUMN)),
                         cursor.getString(cursor.getColumnIndex(AccesDonnees.TITLE_COLUMN)),
                         cursor.getString(cursor.getColumnIndex(AccesDonnees.DESCRIPTION_COLUMN)));

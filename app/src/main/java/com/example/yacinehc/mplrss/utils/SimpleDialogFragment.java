@@ -1,12 +1,10 @@
 package com.example.yacinehc.mplrss.utils;
 
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.yacinehc.mplrss.R;
+import com.example.yacinehc.mplrss.RssListFragment;
+
+import java.nio.file.Files;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,8 +35,6 @@ public class SimpleDialogFragment extends DialogFragment {
     private EditText responseEditText;
     private Button addButton;
     private Button cancelButton;
-
-    private OnDialogFragmentInteractionListener onDialogFragmentInteractionListener;
 
 
     public SimpleDialogFragment() {
@@ -69,7 +68,7 @@ public class SimpleDialogFragment extends DialogFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             final Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_simple_dialog, container, false);
         titleTextView = view.findViewById(R.id.dialogTitle);
         questionTextView = view.findViewById(R.id.questionDialog);
@@ -80,16 +79,17 @@ public class SimpleDialogFragment extends DialogFragment {
         titleTextView.setText(this.title);
         questionTextView.setText(this.question);
 
+        final SimpleDialogFragment simpleDialogFragment = this;
+
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (onDialogFragmentInteractionListener != null) {
-                    String adresse = responseEditText.getText().toString();
-                    if (!adresse.equals("")) {
-                        Uri uri = Uri.parse(adresse);
-                        onDialogFragmentInteractionListener.onDialogFragmentAdd(uri);
-                        dismiss();
-                    }
+                String adresse = responseEditText.getText().toString();
+                if (!adresse.equals("")) {
+                    Uri uri = Uri.parse(adresse);
+                    RssListFragment rssListFragment = (RssListFragment) simpleDialogFragment.getTargetFragment();
+                    rssListFragment.addRss(uri);
+                    dismiss();
                 }
             }
         });
@@ -103,7 +103,7 @@ public class SimpleDialogFragment extends DialogFragment {
         return view;
     }
 
-    @Override
+   /* @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnDialogFragmentInteractionListener) {
@@ -111,9 +111,6 @@ public class SimpleDialogFragment extends DialogFragment {
         } else {
             throw new RuntimeException(context.toString() + " must implement OnDialogFragmentInteractionListener");
         }
-    }
+    }*/
 
-    public interface OnDialogFragmentInteractionListener{
-        void onDialogFragmentAdd(Uri uri);
-    }
 }
