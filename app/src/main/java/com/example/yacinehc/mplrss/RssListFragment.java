@@ -20,26 +20,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.yacinehc.mplrss.db.AccesDonnees;
 import com.example.yacinehc.mplrss.model.RSS;
 import com.example.yacinehc.mplrss.utils.SimpleDialogFragment;
 
-import java.io.BufferedReader;
+import org.w3c.dom.Document;
+
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URLConnection;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 
 import static android.content.Context.DOWNLOAD_SERVICE;
 
 
-public class RssListFragment extends Fragment  {
+public class RssListFragment extends Fragment {
     private static final String RSS_LIST = "rssList";
     private List<Long> idList;
     private List<RSS> rssList;
@@ -71,14 +68,22 @@ public class RssListFragment extends Fragment  {
                         Snackbar snackbar = Snackbar.make(getView(), "Téléchargement finie : " + fileTitle, Snackbar.LENGTH_LONG);
                         snackbar.show();
 
-                        File file = new File(localPath);
                         try {
 
-                            InputStream inputStream = new FileInputStream(localPath);
-                            System.out.println("URLConnection.guessContentTypeFromStream(inputStream) = " + URLConnection.guessContentTypeFromStream(inputStream));
-                        } catch (IOException e) {
+                            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+                            DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
+                            Document document = documentBuilder.parse(localPath);
+
+                            RSS rss = MyParser.getRss(localPath);
+
+                            AccesDonnees accesDonnees = new AccesDonnees(getActivity());
+                            accesDonnees.addRSSFeed(rss);
+
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
+
+
                     }
 
                 }

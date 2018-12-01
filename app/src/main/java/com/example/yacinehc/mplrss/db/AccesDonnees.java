@@ -25,6 +25,11 @@ public class AccesDonnees {
     }
 
 
+    public void addRSSFeed(RSS rss) {
+        addRSSFeed(rss.getLink(), rss.getTitre(), rss.getDescription());
+    }
+
+
     public void addRSSFeed(String link, String title, String description) {
         ContentValues contentValues = new ContentValues();
 
