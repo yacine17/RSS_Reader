@@ -2,6 +2,9 @@ package com.example.yacinehc.mplrss;
 
 
 import android.app.DownloadManager;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -24,6 +27,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.RemoteViews;
 
 import com.example.yacinehc.mplrss.db.AccesDonnees;
 import com.example.yacinehc.mplrss.model.RSS;
@@ -36,18 +41,12 @@ import static android.content.Context.DOWNLOAD_SERVICE;
 
 
 public class RssListFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
-
-
     private final static String TAG = RssListFragment.class.getSimpleName();
+    private List<Long> idList;
     private RecyclerView mRecyclerView;
     private CustomCursorRecyclerViewAdapter customCursorRecyclerViewAdapter;
-    private List<Long> idList;
     private DownloadManager downloadManager;
     private LoaderManager loaderManager;
-
-
-    private Uri uri = new Uri.Builder().scheme("content").appendPath("rss").build();
-
 
     public RssListFragment() {
         idList = new ArrayList<>();
@@ -74,9 +73,6 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                        */
                 SimpleDialogFragment simpleDialogFragment = SimpleDialogFragment.newInstance("RSS URL", "Entrez un nouveau URL");
                 simpleDialogFragment.setTargetFragment(thisInstance, 0);
                 simpleDialogFragment.show(fragmentTransaction, "SimpleDialogFragment");
@@ -92,7 +88,7 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
             case 0:
                 Uri.Builder builder = new Uri.Builder();
                 Uri uri = builder.scheme("content").authority(AccesDonnees.authority).appendPath("rss").build();
-                return new CursorLoader(getActivity(), uri, new String[]{"link AS _id", "title"}, null, null, null);
+                return new CursorLoader(getActivity(), uri, new String[]{"link AS _id", "title", "description"}, null, null, null);
             default:
                 throw new IllegalArgumentException("no id handled");
         }
@@ -113,6 +109,8 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
     public void initFragment() {
         final RssListFragment thisInstance = this;
         downloadManager = (DownloadManager) getActivity().getSystemService(DOWNLOAD_SERVICE);
+
+
         BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -123,17 +121,18 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
                     query.setFilterById(reference);
                     Cursor cursor = downloadManager.query(query);
                     if (cursor.moveToFirst()) {
-                        String fileTitle = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_TITLE));
                         String localPath = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI));
-                        Snackbar snackbar = Snackbar.make(getView(), "Téléchargement finie : " + fileTitle, Snackbar.LENGTH_LONG);
-                        snackbar.show();
                         try {
                             RSS rss = MyParser.getRss(localPath);
                             AccesDonnees accesDonnees = new AccesDonnees(getActivity());
                             accesDonnees.addRSSFeed(rss);
                             loaderManager.restartLoader(0, null, thisInstance);
+                            Snackbar snackbar = Snackbar.make(getView(), "Flux ajouté avec succès", Snackbar.LENGTH_LONG);
+                            snackbar.show();
                         } catch (Exception e) {
                             e.printStackTrace();
+                            Snackbar snackbar = Snackbar.make(getView(), "Erreur lors de téléchegement, vérifiez bien le lien", Snackbar.LENGTH_SHORT);
+                            snackbar.show();
                         }
                     }
                 }
@@ -145,7 +144,61 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
     public void downloadFile(Uri uri) {
         DownloadManager.Request request = new DownloadManager.Request(uri);
         request.setDestinationInExternalFilesDir(getActivity(), Environment.DIRECTORY_DOWNLOADS, "mplrss");
-        idList.add(downloadManager.enqueue(request));
+
+        request.setDescription(uri.toString());
+        request.allowScanningByMediaScanner();
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+
+
+        final long id = downloadManager.enqueue(request);
+        idList.add(id);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                boolean downloading = true;
+                Notification notification;
+                NotificationManager notificationManager;
+
+                while (downloading) {
+                    DownloadManager.Query q = new DownloadManager.Query();
+                    q.setFilterById(id);
+
+                    Cursor cursor = downloadManager.query(q);
+                    cursor.moveToFirst();
+                    int bytes_downloaded = cursor.getInt(cursor.
+                            getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
+                    int bytes_total = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
+
+                    if (cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS)) == DownloadManager.STATUS_SUCCESSFUL) {
+                        downloading = false;
+                    }
+
+                    final int dl_progress = (bytes_downloaded / bytes_total) * 100;
+
+                    Intent intent = new Intent();
+                    final PendingIntent pendingIntent = PendingIntent.getActivity(
+                            getContext().getApplicationContext(), 0, intent, 0);
+
+                    notification = new Notification(R.drawable.rss_icon, "Téléchargement du flux",
+                            System.currentTimeMillis());
+
+                    notification.flags = notification.flags | Notification.FLAG_ONGOING_EVENT;
+                    notification.contentView = new RemoteViews(getContext().getApplicationContext().getPackageName(),
+                            R.layout.download_progress_bar);
+
+                    notification.contentView.setProgressBar(R.id.progress_bar, 100, dl_progress, false);
+
+                    getActivity().getApplicationContext();
+
+                    notificationManager = (NotificationManager) getActivity().getApplicationContext().getSystemService(
+                            Context.NOTIFICATION_SERVICE);
+                    notificationManager.notify((int) id, notification);
+                }
+            }
+        }).start();
+
+
     }
 
     @Override
