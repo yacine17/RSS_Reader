@@ -1,10 +1,6 @@
 package com.example.yacinehc.mplrss;
 
-import android.app.DownloadManager;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -15,13 +11,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-
-import com.example.yacinehc.mplrss.db.AccesDonnees;
-import com.example.yacinehc.mplrss.model.RSS;
-import com.example.yacinehc.mplrss.utils.SimpleDialogFragment;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -44,19 +33,10 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
-        AccesDonnees accesDonnees = new AccesDonnees(this);
-        ArrayList<RSS> rssList = accesDonnees.getRSSFeed();
-
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        //RssListFragment rssListFragment = RssListFragment.newInstance(rssList);
         RssListFragment rssListFragment = new RssListFragment();
         fragmentTransaction.add(R.id.feedListFrameLayout, rssListFragment);
         fragmentTransaction.commit();
-
-
-
-        System.out.println("accesDonnees.getRSSFeed().size() = " + accesDonnees.getRSSFeed().size());
     }
 
 
@@ -83,12 +63,10 @@ public class MainActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 

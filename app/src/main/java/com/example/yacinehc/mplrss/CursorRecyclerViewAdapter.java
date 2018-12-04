@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.database.DataSetObserver;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.ViewGroup;
 
 public abstract class CursorRecyclerViewAdapter<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
@@ -18,7 +17,6 @@ public abstract class CursorRecyclerViewAdapter<VH extends RecyclerView.ViewHold
 
 
     public CursorRecyclerViewAdapter(Context mContext, Cursor mCursor) {
-        Log.d(TAG, "constructeur");
         this.mContext = mContext;
         this.mCursor = mCursor;
         mDataValid = mCursor != null;
@@ -59,14 +57,12 @@ public abstract class CursorRecyclerViewAdapter<VH extends RecyclerView.ViewHold
     @NonNull
     @Override
     public VH onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        Log.d(TAG, "onCreateViewHolder");
         return null;
     }
 
 
     @Override
     public void onBindViewHolder(@NonNull VH viewHolder, int position) {
-        Log.d(TAG, "onBindViewHolder");
         if (!mDataValid) {
             throw new IllegalStateException("this should only be called when the cursor is valid");
         }
@@ -84,7 +80,6 @@ public abstract class CursorRecyclerViewAdapter<VH extends RecyclerView.ViewHold
     }
 
     public Cursor swapCursor(Cursor newCursor) {
-        Log.d(TAG, "swapCursor");
         if (newCursor == mCursor) {
             return null;
         }

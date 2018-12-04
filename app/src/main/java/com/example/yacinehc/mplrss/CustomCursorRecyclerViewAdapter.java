@@ -4,7 +4,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ public class CustomCursorRecyclerViewAdapter extends CursorRecyclerViewAdapter {
 
     public CustomCursorRecyclerViewAdapter(Context context, Cursor cursor) {
         super(context, cursor);
-        Log.d(TAG, "constructeur");
     }
 
     @Override
@@ -22,19 +20,15 @@ public class CustomCursorRecyclerViewAdapter extends CursorRecyclerViewAdapter {
         return super.getItemId(position);
     }
 
-
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        Log.d(TAG, "onCreateViewHolder");
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.rss_item_recyclerview, viewGroup, false);
         return new CustomViewHolder(view);
     }
 
-
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, Cursor cursor) {
-        Log.d(TAG, "onBindViewHolder");
         CustomViewHolder holder = (CustomViewHolder) viewHolder;
         cursor.moveToPosition(cursor.getPosition());
         holder.setData(cursor);
