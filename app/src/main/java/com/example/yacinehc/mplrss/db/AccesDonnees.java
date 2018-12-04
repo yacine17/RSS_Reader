@@ -18,7 +18,7 @@ public class AccesDonnees {
     public final static String LINK_COLUMN = "link";
     public final static String TITLE_COLUMN = "title";
     public final static String DESCRIPTION_COLUMN = "description";
-    private final static String authority = "fr.diderot.yacinehc.mplrssserver";
+    public final static String authority = "fr.diderot.yacinehc.mplrssserver";
 
     public AccesDonnees(Context context) {
         contentResolver = context.getContentResolver();

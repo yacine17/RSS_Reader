@@ -49,10 +49,14 @@ public class MainActivity extends AppCompatActivity
         ArrayList<RSS> rssList = accesDonnees.getRSSFeed();
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        RssListFragment rssListFragment = RssListFragment.newInstance(rssList);
+        //RssListFragment rssListFragment = RssListFragment.newInstance(rssList);
+        RssListFragment rssListFragment = new RssListFragment();
         fragmentTransaction.add(R.id.feedListFrameLayout, rssListFragment);
         fragmentTransaction.commit();
 
+
+
+        System.out.println("accesDonnees.getRSSFeed().size() = " + accesDonnees.getRSSFeed().size());
     }
 
 
