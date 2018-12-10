@@ -9,8 +9,8 @@ import com.example.yacinehc.mplrss.model.RSS;
 
 import java.util.Objects;
 
-public class CheckedLinearLayout extends LinearLayout implements Checkable {
-    private boolean checked;
+public class CheckedLinearLayout extends LinearLayout implements Checkable{
+   private boolean checked;
     private RSS rss;
 
     public CheckedLinearLayout(Context context) {

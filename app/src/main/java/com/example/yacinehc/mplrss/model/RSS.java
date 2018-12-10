@@ -71,4 +71,13 @@ public class RSS implements Parcelable {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return "RSS{" +
+                "link='" + link + '\'' +
+                ", titre='" + titre + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

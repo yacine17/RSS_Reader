@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
     <ProgressBar
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:id="@+id/progress_bar"
+        android:layout_weight="5"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:id="@+id/progress_bar"/>
-</android.support.constraint.ConstraintLayout>
+        android:src="@android:drawable/ic_menu_close_clear_cancel" />
+
+</LinearLayout>

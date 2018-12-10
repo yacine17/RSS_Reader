@@ -7,19 +7,23 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.Observable;
+import java.util.Observer;
+
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-    private RecyclerView homeRecyclerView;
+        implements NavigationView.OnNavigationItemSelectedListener, Observer {
+    private MenuItem deleteAction;
+    private MyObservable myObsarvable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        myObsarvable = new MyObservable();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -37,6 +41,8 @@ public class MainActivity extends AppCompatActivity
         RssListFragment rssListFragment = new RssListFragment();
         fragmentTransaction.add(R.id.feedListFrameLayout, rssListFragment);
         fragmentTransaction.commit();
+
+
     }
 
 
@@ -54,6 +60,8 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        deleteAction = menu.findItem(R.id.action_delete);
+
         return true;
     }
 
@@ -65,6 +73,10 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        } else if (id == R.id.action_delete) {
+            myObsarvable.setChanged();
+            myObsarvable.notifyObservers(new String("deleteAll"));
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -94,4 +106,28 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public MyObservable getMyObsarvable() {
+        return myObsarvable;
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        if (o instanceof CustomCursorRecyclerViewAdapter.MyObsarvable) {
+            Integer checkedItemsCount = (Integer) arg;
+            if (checkedItemsCount == 0) {
+                deleteAction.setVisible(false);
+            } else {
+                deleteAction.setVisible(true);
+            }
+        }
+    }
+
+    public class MyObservable extends Observable {
+        public void setChanged() {
+            super.setChanged();
+        }
+    }
+
 }
+

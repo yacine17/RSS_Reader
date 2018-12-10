@@ -27,7 +27,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import android.widget.RemoteViews;
 
 import com.example.yacinehc.mplrss.db.AccesDonnees;
@@ -36,6 +35,7 @@ import com.example.yacinehc.mplrss.utils.SimpleDialogFragment;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observer;
 
 import static android.content.Context.DOWNLOAD_SERVICE;
 
@@ -47,6 +47,8 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
     private CustomCursorRecyclerViewAdapter customCursorRecyclerViewAdapter;
     private DownloadManager downloadManager;
     private LoaderManager loaderManager;
+    private List<Integer> selectedItemsPositions;
+
 
     public RssListFragment() {
         idList = new ArrayList<>();
@@ -55,7 +57,10 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        customCursorRecyclerViewAdapter = new CustomCursorRecyclerViewAdapter(getContext(), null);
+        selectedItemsPositions = new ArrayList<>();
+        customCursorRecyclerViewAdapter = new CustomCursorRecyclerViewAdapter(getContext(), null, this);
+        customCursorRecyclerViewAdapter.getMyObsarvable().addObserver((Observer) getActivity());
+        ((MainActivity) getActivity()).getMyObsarvable().addObserver(customCursorRecyclerViewAdapter);
         loaderManager = getActivity().getSupportLoaderManager();
         loaderManager.restartLoader(0, null, this);
     }
@@ -68,16 +73,17 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(customCursorRecyclerViewAdapter);
         FloatingActionButton fab = view.findViewById(R.id.fab);
-        final FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         final RssListFragment thisInstance = this;
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 SimpleDialogFragment simpleDialogFragment = SimpleDialogFragment.newInstance("RSS URL", "Entrez un nouveau URL");
                 simpleDialogFragment.setTargetFragment(thisInstance, 0);
                 simpleDialogFragment.show(fragmentTransaction, "SimpleDialogFragment");
             }
         });
+
         return view;
     }
 
@@ -109,8 +115,6 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
     public void initFragment() {
         final RssListFragment thisInstance = this;
         downloadManager = (DownloadManager) getActivity().getSystemService(DOWNLOAD_SERVICE);
-
-
         BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -124,8 +128,10 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
                         String localPath = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI));
                         try {
                             RSS rss = MyParser.getRss(localPath);
+                            System.out.println("rss.toString() = " + rss.toString());
                             AccesDonnees accesDonnees = new AccesDonnees(getActivity());
                             accesDonnees.addRSSFeed(rss);
+
                             loaderManager.restartLoader(0, null, thisInstance);
                             Snackbar snackbar = Snackbar.make(getView(), "Flux ajouté avec succès", Snackbar.LENGTH_LONG);
                             snackbar.show();
@@ -197,8 +203,6 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
                 }
             }
         }).start();
-
-
     }
 
     @Override
@@ -210,4 +214,5 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
     public void addRss(Uri uri) {
         downloadFile(uri);
     }
+
 }

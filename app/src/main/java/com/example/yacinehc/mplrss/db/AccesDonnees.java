@@ -9,16 +9,16 @@ import android.net.Uri;
 import com.example.yacinehc.mplrss.model.RSS;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AccesDonnees {
-    private ContentResolver contentResolver;
-
     public final static String DB_NAME = "base_rss";
     public final static String RSS_TABLE = "rss";
     public final static String LINK_COLUMN = "link";
     public final static String TITLE_COLUMN = "title";
     public final static String DESCRIPTION_COLUMN = "description";
     public final static String authority = "fr.diderot.yacinehc.mplrssserver";
+    private ContentResolver contentResolver;
 
     public AccesDonnees(Context context) {
         contentResolver = context.getContentResolver();
@@ -63,6 +63,19 @@ public class AccesDonnees {
         }
 
         return list;
+    }
+
+    public void removeItems(List<RSS> items) {
+        Uri.Builder builder = new Uri.Builder();
+        builder.scheme("content").authority(authority).appendPath(RSS_TABLE);
+        Uri uri = builder.build();
+
+
+
+        for (RSS rss : items) {
+            System.out.println("contentResolver.delete(uri, \"title in (?)\", new String[{args}]) = " + contentResolver.delete(uri, "title  = ?", new String[]{rss.getTitre()}));
+        }
+
     }
 
 }
