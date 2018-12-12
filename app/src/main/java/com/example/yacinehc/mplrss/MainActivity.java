@@ -19,16 +19,14 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, Observer, Serializable {
     transient private MenuItem deleteAction;
     private MyObservable myObsarvable;
+    private int checkedItemsCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*if (savedInstanceState != null) {
-            myObsarvable = (MyObservable) savedInstanceState.get("myObsarvable");
-        } else
-        */    myObsarvable = new MyObservable();
 
+        myObsarvable = new MyObservable();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -42,11 +40,12 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        RssListFragment rssListFragment = new RssListFragment();
-        fragmentTransaction.add(R.id.feedListFrameLayout, rssListFragment);
-        fragmentTransaction.commit();
-
+        if (savedInstanceState == null) {
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            RssListFragment rssListFragment = new RssListFragment();
+            fragmentTransaction.add(R.id.feedListFrameLayout, rssListFragment);
+            fragmentTransaction.commit();
+        }
     }
 
     @Override
@@ -70,6 +69,7 @@ public class MainActivity extends AppCompatActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         deleteAction = menu.findItem(R.id.action_delete);
+        deleteAction.setVisible((checkedItemsCount != 0));
 
         return true;
     }
@@ -123,11 +123,13 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void update(Observable o, Object arg) {
         if (o instanceof CustomCursorRecyclerViewAdapter.MyObsarvable) {
-            Integer checkedItemsCount = (Integer) arg;
-            if (checkedItemsCount == 0) {
-                deleteAction.setVisible(false);
-            } else {
-                deleteAction.setVisible(true);
+            checkedItemsCount = (Integer) arg;
+            if (deleteAction != null) {
+                if (checkedItemsCount == 0) {
+                    deleteAction.setVisible(false);
+                } else {
+                    deleteAction.setVisible(true);
+                }
             }
         }
     }

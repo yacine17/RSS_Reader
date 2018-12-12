@@ -13,7 +13,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -44,25 +43,26 @@ import static android.content.Context.DOWNLOAD_SERVICE;
 
 
 public class RssListFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
-    private final static String RECYCLER_STATE = "recyclerViewState";
+    private final static String SCROLL_POSITION = "scrollPosition";
+    private final static String SELECTED_ITEMS_LIST = "selectedItemsList";
     private List<Long> idList;
     private CustomCursorRecyclerViewAdapter customCursorRecyclerViewAdapter;
     private LoaderManager loaderManager;
     private RssListFragment thisInstance;
     private MyBroadcastReceiver broadcastReceiver;
     private RecyclerView mRecyclerView;
+    private int scrollPosition;
 
 
     public RssListFragment() {
         idList = new ArrayList<>();
+        scrollPosition = 0;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         customCursorRecyclerViewAdapter = new CustomCursorRecyclerViewAdapter(getContext(), null, this);
-
 
         loaderManager = getActivity().getSupportLoaderManager();
         loaderManager.restartLoader(0, null, this);
@@ -75,7 +75,6 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
 
         customCursorRecyclerViewAdapter.getMyObsarvable().addObserver((Observer) getActivity());
         ((MainActivity) getActivity()).getMyObsarvable().addObserver(customCursorRecyclerViewAdapter);
-
     }
 
     @Nullable
@@ -105,19 +104,25 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable(RECYCLER_STATE, mRecyclerView.getLayoutManager().onSaveInstanceState());
-    }
+        outState.putParcelableArrayList(SELECTED_ITEMS_LIST, customCursorRecyclerViewAdapter.getSelectedItemsList());
 
+        RecyclerView.LayoutManager layoutManager = mRecyclerView.getLayoutManager();
+        if (layoutManager != null && layoutManager instanceof LinearLayoutManager) {
+            int scrollPosition = ((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition();
+            outState.putInt(SCROLL_POSITION, scrollPosition);
+        }
+    }
 
     @Override
     public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
         super.onViewStateRestored(savedInstanceState);
+
         if (savedInstanceState != null) {
-            System.out.println("haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-            Parcelable recyclerState = savedInstanceState.getParcelable(RECYCLER_STATE);
-            mRecyclerView.getLayoutManager().onRestoreInstanceState(recyclerState);
+            customCursorRecyclerViewAdapter.setSelectedItemsList(savedInstanceState.<RSS>getParcelableArrayList(SELECTED_ITEMS_LIST));
+            scrollPosition = savedInstanceState.getInt(SCROLL_POSITION, 0);
         }
     }
+
 
     @NonNull
     @Override
@@ -136,6 +141,8 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
     public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
         customCursorRecyclerViewAdapter.swapCursor(data);
         customCursorRecyclerViewAdapter.notifyDataSetChanged();
+
+        mRecyclerView.getLayoutManager().scrollToPosition(scrollPosition);
     }
 
     @Override
@@ -150,6 +157,9 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
 
         broadcastReceiver = new MyBroadcastReceiver();
         getActivity().registerReceiver(broadcastReceiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+
+        customCursorRecyclerViewAdapter.getMyObsarvable().setChanged();
+        customCursorRecyclerViewAdapter.getMyObsarvable().notifyObservers(customCursorRecyclerViewAdapter.getSelectedItemsList().size());
     }
 
     @Override
@@ -170,7 +180,6 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
         request.setDescription(uri.toString());
         request.allowScanningByMediaScanner();
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-
 
         final long id = downloadManager.enqueue(request);
         idList.add(id);
@@ -244,7 +253,6 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
                 if (cursor.moveToFirst()) {
                     String localPath = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI));
                     File file = new File(localPath.replace("file://", ""));
-                    file.deleteOnExit();
                     String link = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_URI));
                     try {
                         RSS rss = MyParser.getRss(localPath);
@@ -253,7 +261,10 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
                         AccesDonnees accesDonnees = new AccesDonnees(getActivity());
                         accesDonnees.addRSSFeed(rss);
 
+                        scrollPosition = customCursorRecyclerViewAdapter.getItemCount();
+
                         loaderManager.restartLoader(0, null, thisInstance);
+
                         Snackbar snackbar = Snackbar.make(getView(), "Flux ajouté avec succès", Snackbar.LENGTH_LONG);
                         snackbar.show();
                     } catch (Exception e) {
@@ -261,6 +272,7 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
                         Snackbar snackbar = Snackbar.make(getView(), "Erreur lors de téléchegement, vérifiez bien le lien", Snackbar.LENGTH_SHORT);
                         snackbar.show();
                     }
+                    file.delete();
                 }
             }
         }

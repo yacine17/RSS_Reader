@@ -15,7 +15,6 @@ public abstract class CursorRecyclerViewAdapter<VH extends RecyclerView.ViewHold
     private int mRowIdColumn;
     private DataSetObserver dataSetObserver;
 
-
     public CursorRecyclerViewAdapter(Context mContext, Cursor mCursor) {
         this.mContext = mContext;
         this.mCursor = mCursor;
@@ -60,7 +59,6 @@ public abstract class CursorRecyclerViewAdapter<VH extends RecyclerView.ViewHold
         return null;
     }
 
-
     @Override
     public void onBindViewHolder(@NonNull VH viewHolder, int position) {
         if (!mDataValid) {
@@ -70,13 +68,6 @@ public abstract class CursorRecyclerViewAdapter<VH extends RecyclerView.ViewHold
             throw new IllegalStateException("couldn't move cursor to position " + position);
         }
         onBindViewHolder(viewHolder, mCursor);
-    }
-
-    public void changeCursor(Cursor cursor) {
-        Cursor old = swapCursor(cursor);
-        if (old != null) {
-            old.close();
-        }
     }
 
     public Cursor swapCursor(Cursor newCursor) {

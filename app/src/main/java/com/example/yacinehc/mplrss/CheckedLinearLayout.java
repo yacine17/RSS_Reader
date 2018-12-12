@@ -10,7 +10,7 @@ import com.example.yacinehc.mplrss.model.RSS;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class CheckedLinearLayout extends LinearLayout implements Checkable, Serializable {
+public class CheckedLinearLayout extends LinearLayout implements Checkable {
     private boolean checked;
     private RSS rss;
 
@@ -64,6 +64,7 @@ public class CheckedLinearLayout extends LinearLayout implements Checkable, Seri
 
     @Override
     public int hashCode() {
+
         return Objects.hash(checked, rss);
     }
 }

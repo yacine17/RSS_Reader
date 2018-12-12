@@ -3,6 +3,8 @@ package com.example.yacinehc.mplrss.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.Objects;
+
 public class RSS implements Parcelable {
     public static final Creator<RSS> CREATOR = new Creator<RSS>() {
         @Override
@@ -74,5 +76,21 @@ public class RSS implements Parcelable {
                 ", titre='" + titre + '\'' +
                 ", description='" + description + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RSS rss = (RSS) o;
+        return Objects.equals(link, rss.link) &&
+                Objects.equals(titre, rss.titre) &&
+                Objects.equals(description, rss.description);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(link, titre, description);
     }
 }

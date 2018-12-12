@@ -31,6 +31,7 @@ public class MyParser {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
             Document document = documentBuilder.parse(filePath);
+
             String title = document.getElementsByTagName("title").item(0).getTextContent();
             String link = document.getElementsByTagName("link").item(0).getTextContent();
             NodeList descriptions = document.getElementsByTagName("description");
@@ -40,6 +41,7 @@ public class MyParser {
                 description = StringEscapeUtils.unescapeXml(description);
                 System.out.println("description = " + description);
             }
+
             return new RSS(null, getDomainName(link) + " : " + title, description);
         } catch (Exception e) {
             e.printStackTrace();

@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.yacinehc.mplrss.db.AccesDonnees;
+import com.example.yacinehc.mplrss.model.RSS;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class CustomCursorRecyclerViewAdapter extends CursorRecyclerViewAdapter implements Observer, Serializable {
-    private List<CheckedLinearLayout> checkedItems;
+    private List<RSS> checkedItems;
     private MyOnClickListener myOnClickListener;
     private MyOnLongClickListener myOnLongClickListener;
     private MyObsarvable myObsarvable;
@@ -52,11 +53,15 @@ public class CustomCursorRecyclerViewAdapter extends CursorRecyclerViewAdapter i
         CheckedLinearLayout checkedLinearLayout = (CheckedLinearLayout) holder.itemView;
         holder.itemView.setOnClickListener(myOnClickListener);
         holder.itemView.setOnLongClickListener(myOnLongClickListener);
-        if (!checkedItems.contains(checkedLinearLayout)) {
-            checkedLinearLayout.setBackground(context.getDrawable(R.drawable.ripple));
-        }
+
         cursor.moveToPosition(cursor.getPosition());
         holder.setData(cursor);
+
+        if (!checkedItems.contains(checkedLinearLayout.getRss())) {
+            checkedLinearLayout.setBackground(context.getDrawable(R.drawable.ripple));
+        } else {
+            checkedLinearLayout.setBackground(context.getDrawable(R.drawable.ripple_checked));
+        }
     }
 
     @Override
@@ -69,15 +74,23 @@ public class CustomCursorRecyclerViewAdapter extends CursorRecyclerViewAdapter i
         return 0;
     }
 
+    public ArrayList<RSS> getSelectedItemsList() {
+        return (ArrayList<RSS>) checkedItems;
+    }
+
+    public void setSelectedItemsList(ArrayList<RSS> list) {
+        checkedItems = list;
+    }
+
     private void toggleCheckItem(View view) {
         CheckedLinearLayout checkedLinearLayout = (CheckedLinearLayout) view;
         checkedLinearLayout.toggle();
 
         if (checkedLinearLayout.isChecked()) {
-            checkedItems.add(checkedLinearLayout);
+            checkedItems.add(checkedLinearLayout.getRss());
             checkedLinearLayout.setBackground(view.getContext().getDrawable(R.drawable.ripple_checked));
         } else {
-            checkedItems.remove(checkedLinearLayout);
+            checkedItems.remove(checkedLinearLayout.getRss());
             checkedLinearLayout.setBackground(view.getContext().getDrawable(R.drawable.ripple));
         }
 
