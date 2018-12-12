@@ -13,6 +13,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -24,6 +25,7 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +35,7 @@ import com.example.yacinehc.mplrss.db.AccesDonnees;
 import com.example.yacinehc.mplrss.model.RSS;
 import com.example.yacinehc.mplrss.utils.SimpleDialogFragment;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observer;
@@ -41,13 +44,13 @@ import static android.content.Context.DOWNLOAD_SERVICE;
 
 
 public class RssListFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
-    private final static String TAG = RssListFragment.class.getSimpleName();
+    private final static String RECYCLER_STATE = "recyclerViewState";
     private List<Long> idList;
-    private RecyclerView mRecyclerView;
     private CustomCursorRecyclerViewAdapter customCursorRecyclerViewAdapter;
-    private DownloadManager downloadManager;
     private LoaderManager loaderManager;
-    private List<Integer> selectedItemsPositions;
+    private RssListFragment thisInstance;
+    private MyBroadcastReceiver broadcastReceiver;
+    private RecyclerView mRecyclerView;
 
 
     public RssListFragment() {
@@ -57,21 +60,33 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        selectedItemsPositions = new ArrayList<>();
+
         customCursorRecyclerViewAdapter = new CustomCursorRecyclerViewAdapter(getContext(), null, this);
-        customCursorRecyclerViewAdapter.getMyObsarvable().addObserver((Observer) getActivity());
-        ((MainActivity) getActivity()).getMyObsarvable().addObserver(customCursorRecyclerViewAdapter);
+
+
         loaderManager = getActivity().getSupportLoaderManager();
         loaderManager.restartLoader(0, null, this);
+        thisInstance = this;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        customCursorRecyclerViewAdapter.getMyObsarvable().addObserver((Observer) getActivity());
+        ((MainActivity) getActivity()).getMyObsarvable().addObserver(customCursorRecyclerViewAdapter);
+
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_rss_list, container, false);
+
         mRecyclerView = view.findViewById(R.id.homeRecyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(customCursorRecyclerViewAdapter);
+
         FloatingActionButton fab = view.findViewById(R.id.fab);
         final RssListFragment thisInstance = this;
         fab.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +102,23 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
         return view;
     }
 
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(RECYCLER_STATE, mRecyclerView.getLayoutManager().onSaveInstanceState());
+    }
+
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        if (savedInstanceState != null) {
+            System.out.println("haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            Parcelable recyclerState = savedInstanceState.getParcelable(RECYCLER_STATE);
+            mRecyclerView.getLayoutManager().onRestoreInstanceState(recyclerState);
+        }
+    }
+
     @NonNull
     @Override
     public Loader<Cursor> onCreateLoader(int i, @Nullable Bundle bundle) {
@@ -94,7 +126,7 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
             case 0:
                 Uri.Builder builder = new Uri.Builder();
                 Uri uri = builder.scheme("content").authority(AccesDonnees.authority).appendPath("rss").build();
-                return new CursorLoader(getActivity(), uri, new String[]{"link AS _id", "title", "description"}, null, null, null);
+                return new CursorLoader(getActivity(), uri, new String[]{"title AS _id", "title", "description", "link"}, null, null, null);
             default:
                 throw new IllegalArgumentException("no id handled");
         }
@@ -112,42 +144,26 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
         customCursorRecyclerViewAdapter.notifyDataSetChanged();
     }
 
-    public void initFragment() {
-        final RssListFragment thisInstance = this;
-        downloadManager = (DownloadManager) getActivity().getSystemService(DOWNLOAD_SERVICE);
-        BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                long reference = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
-                if (idList.contains(reference)) {
-                    idList.remove(reference);
-                    DownloadManager.Query query = new DownloadManager.Query();
-                    query.setFilterById(reference);
-                    Cursor cursor = downloadManager.query(query);
-                    if (cursor.moveToFirst()) {
-                        String localPath = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI));
-                        try {
-                            RSS rss = MyParser.getRss(localPath);
-                            System.out.println("rss.toString() = " + rss.toString());
-                            AccesDonnees accesDonnees = new AccesDonnees(getActivity());
-                            accesDonnees.addRSSFeed(rss);
+    @Override
+    public void onResume() {
+        super.onResume();
 
-                            loaderManager.restartLoader(0, null, thisInstance);
-                            Snackbar snackbar = Snackbar.make(getView(), "Flux ajouté avec succès", Snackbar.LENGTH_LONG);
-                            snackbar.show();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            Snackbar snackbar = Snackbar.make(getView(), "Erreur lors de téléchegement, vérifiez bien le lien", Snackbar.LENGTH_SHORT);
-                            snackbar.show();
-                        }
-                    }
-                }
-            }
-        };
+        broadcastReceiver = new MyBroadcastReceiver();
         getActivity().registerReceiver(broadcastReceiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        try {
+            getActivity().unregisterReceiver(broadcastReceiver);
+        } catch (IllegalArgumentException e) {
+            Log.d(getTag(), "IllegalArgumentException: Receiver not registered");
+        }
+    }
+
     public void downloadFile(Uri uri) {
+        final DownloadManager downloadManager = (DownloadManager) getActivity().getSystemService(DOWNLOAD_SERVICE);
         DownloadManager.Request request = new DownloadManager.Request(uri);
         request.setDestinationInExternalFilesDir(getActivity(), Environment.DIRECTORY_DOWNLOADS, "mplrss");
 
@@ -171,6 +187,7 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
                     q.setFilterById(id);
 
                     Cursor cursor = downloadManager.query(q);
+
                     cursor.moveToFirst();
                     int bytes_downloaded = cursor.getInt(cursor.
                             getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
@@ -208,11 +225,44 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        initFragment();
     }
 
     public void addRss(Uri uri) {
         downloadFile(uri);
     }
 
+    class MyBroadcastReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            DownloadManager downloadManager = (DownloadManager) getActivity().getSystemService(DOWNLOAD_SERVICE);
+            long reference = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
+            if (idList.contains(reference)) {
+                idList.remove(reference);
+                DownloadManager.Query query = new DownloadManager.Query();
+                query.setFilterById(reference);
+                Cursor cursor = downloadManager.query(query);
+                if (cursor.moveToFirst()) {
+                    String localPath = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI));
+                    File file = new File(localPath.replace("file://", ""));
+                    file.deleteOnExit();
+                    String link = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_URI));
+                    try {
+                        RSS rss = MyParser.getRss(localPath);
+                        rss.setLink(link);
+                        System.out.println("rss = " + rss);
+                        AccesDonnees accesDonnees = new AccesDonnees(getActivity());
+                        accesDonnees.addRSSFeed(rss);
+
+                        loaderManager.restartLoader(0, null, thisInstance);
+                        Snackbar snackbar = Snackbar.make(getView(), "Flux ajouté avec succès", Snackbar.LENGTH_LONG);
+                        snackbar.show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Snackbar snackbar = Snackbar.make(getView(), "Erreur lors de téléchegement, vérifiez bien le lien", Snackbar.LENGTH_SHORT);
+                        snackbar.show();
+                    }
+                }
+            }
+        }
+    }
 }

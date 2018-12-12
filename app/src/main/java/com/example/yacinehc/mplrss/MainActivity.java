@@ -11,19 +11,24 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.io.Serializable;
 import java.util.Observable;
 import java.util.Observer;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, Observer {
-    private MenuItem deleteAction;
+        implements NavigationView.OnNavigationItemSelectedListener, Observer, Serializable {
+    transient private MenuItem deleteAction;
     private MyObservable myObsarvable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        myObsarvable = new MyObservable();
+        /*if (savedInstanceState != null) {
+            myObsarvable = (MyObservable) savedInstanceState.get("myObsarvable");
+        } else
+        */    myObsarvable = new MyObservable();
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -42,9 +47,13 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction.add(R.id.feedListFrameLayout, rssListFragment);
         fragmentTransaction.commit();
 
-
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable("myObsarvable", this.myObsarvable);
+    }
 
     @Override
     public void onBackPressed() {
@@ -123,7 +132,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public class MyObservable extends Observable {
+    public class MyObservable extends Observable implements Serializable {
         public void setChanged() {
             super.setChanged();
         }

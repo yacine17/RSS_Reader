@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 
+import com.example.yacinehc.mplrss.CheckedLinearLayout;
 import com.example.yacinehc.mplrss.model.RSS;
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class AccesDonnees {
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(LINK_COLUMN, link);
-        contentValues.put(TITLE_COLUMN, link);
+        contentValues.put(TITLE_COLUMN, title);
         contentValues.put(DESCRIPTION_COLUMN, description);
         Uri.Builder builder = new Uri.Builder();
 
@@ -65,17 +66,15 @@ public class AccesDonnees {
         return list;
     }
 
-    public void removeItems(List<RSS> items) {
+    public void removeItems(List<CheckedLinearLayout> items) {
         Uri.Builder builder = new Uri.Builder();
         builder.scheme("content").authority(authority).appendPath(RSS_TABLE);
         Uri uri = builder.build();
 
-
-
-        for (RSS rss : items) {
-            System.out.println("contentResolver.delete(uri, \"title in (?)\", new String[{args}]) = " + contentResolver.delete(uri, "title  = ?", new String[]{rss.getTitre()}));
+        for (CheckedLinearLayout rss : items) {
+            System.out.println("contentResolver.delete(uri, \"title in (?)\", new String[{args}]) = "
+                    + contentResolver.delete(uri, "link  = ?", new String[]{rss.getRss().getLink()}));
         }
-
     }
 
 }

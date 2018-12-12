@@ -4,13 +4,20 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class RSS implements Parcelable {
+    public static final Creator<RSS> CREATOR = new Creator<RSS>() {
+        @Override
+        public RSS createFromParcel(Parcel in) {
+            return new RSS(in);
+        }
+
+        @Override
+        public RSS[] newArray(int size) {
+            return new RSS[size];
+        }
+    };
     private String link;
     private String titre;
     private String description;
-
-    public RSS() {
-
-    }
 
     public RSS(String link, String titre, String description) {
         this.link = link;
@@ -23,18 +30,6 @@ public class RSS implements Parcelable {
         this.titre = parcel.readString();
         this.description = parcel.readString();
     }
-
-    public static final Creator<RSS> CREATOR = new Creator<RSS>() {
-        @Override
-        public RSS createFromParcel(Parcel in) {
-            return new RSS(in);
-        }
-
-        @Override
-        public RSS[] newArray(int size) {
-            return new RSS[size];
-        }
-    };
 
     @Override
     public int describeContents() {

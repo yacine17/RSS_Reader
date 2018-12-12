@@ -7,10 +7,11 @@ import android.widget.LinearLayout;
 
 import com.example.yacinehc.mplrss.model.RSS;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class CheckedLinearLayout extends LinearLayout implements Checkable{
-   private boolean checked;
+public class CheckedLinearLayout extends LinearLayout implements Checkable, Serializable {
+    private boolean checked;
     private RSS rss;
 
     public CheckedLinearLayout(Context context) {
@@ -63,7 +64,6 @@ public class CheckedLinearLayout extends LinearLayout implements Checkable{
 
     @Override
     public int hashCode() {
-
         return Objects.hash(checked, rss);
     }
 }
