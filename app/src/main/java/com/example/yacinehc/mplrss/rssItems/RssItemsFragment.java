@@ -45,10 +45,11 @@ public class RssItemsFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         RecyclerView rv = new RecyclerView(getContext());
-        rv.setLayoutManager(new LinearLayoutManager(getContext()));
+        rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         rssItemsAdapter = new RssItemsAdapter(mRssItems);
         rv.setAdapter(rssItemsAdapter);
-
+        rv.setVerticalScrollBarEnabled(true);
+        rv.setScrollbarFadingEnabled(true);
 
         return rv;
     }

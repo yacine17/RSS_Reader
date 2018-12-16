@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.yacinehc.mplrss.itemDetails.ItemDetailsFragment;
 import com.example.yacinehc.mplrss.itemDetails.WebViewFragment;
 import com.example.yacinehc.mplrss.model.RSS;
 import com.example.yacinehc.mplrss.model.RssItem;
@@ -24,9 +25,10 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, Observer, Serializable,
+        implements Observer, Serializable,
         CustomCursorRecyclerViewAdapter.OnItemClickListener,
-        RssItemsAdapter.OnRssItemSelected {
+        RssItemsAdapter.OnRssItemSelected,
+        ItemDetailsFragment.OnFragmentInteractionListener{
 
     transient private MenuItem deleteAction;
     private MyObservable myObsarvable;
@@ -42,15 +44,6 @@ public class MainActivity extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
 
         if (savedInstanceState == null) {
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -103,30 +96,6 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
 
     public MyObservable getMyObsarvable() {
         return myObsarvable;
@@ -164,11 +133,25 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void selectItem(RssItem rssItem) {
+        /*FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        WebViewFragment webViewFragment = WebViewFragment.newInstance(rssItem.getLink());
+        fragmentTransaction.replace(R.id.feedListFrameLayout, webViewFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();*/
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        ItemDetailsFragment itemDetailsFragment = ItemDetailsFragment.newInstance(rssItem);
+        fragmentTransaction.replace(R.id.feedListFrameLayout, itemDetailsFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onFragmentInteraction(RssItem rssItem) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         WebViewFragment webViewFragment = WebViewFragment.newInstance(rssItem.getLink());
         fragmentTransaction.replace(R.id.feedListFrameLayout, webViewFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
-
     }
 }
