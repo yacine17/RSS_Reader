@@ -11,15 +11,27 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.yacinehc.mplrss.itemDetails.WebViewFragment;
+import com.example.yacinehc.mplrss.model.RSS;
+import com.example.yacinehc.mplrss.model.RssItem;
+import com.example.yacinehc.mplrss.rssItems.RssItemsAdapter;
+import com.example.yacinehc.mplrss.rssItems.RssItemsFragment;
+import com.example.yacinehc.mplrss.utils.MyParser;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, Observer, Serializable {
+        implements NavigationView.OnNavigationItemSelectedListener, Observer, Serializable,
+        CustomCursorRecyclerViewAdapter.OnItemClickListener,
+        RssItemsAdapter.OnRssItemSelected {
+
     transient private MenuItem deleteAction;
     private MyObservable myObsarvable;
     private int checkedItemsCount;
+    private RssListFragment rssListFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +54,7 @@ public class MainActivity extends AppCompatActivity
 
         if (savedInstanceState == null) {
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            RssListFragment rssListFragment = new RssListFragment();
+            rssListFragment = new RssListFragment();
             fragmentTransaction.add(R.id.feedListFrameLayout, rssListFragment);
             fragmentTransaction.commit();
         }
@@ -134,11 +146,29 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    @Override
+    public void displayRssItems(RSS rss) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        ArrayList<RssItem> rssItems = (ArrayList<RssItem>) MyParser.getItems(rss);
+        RssItemsFragment rssItemsFragment = RssItemsFragment.newInstance(rssItems);
+        fragmentTransaction.replace(R.id.feedListFrameLayout, rssItemsFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
     public class MyObservable extends Observable implements Serializable {
         public void setChanged() {
             super.setChanged();
         }
     }
 
-}
+    @Override
+    public void selectItem(RssItem rssItem) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        WebViewFragment webViewFragment = WebViewFragment.newInstance(rssItem.getLink());
+        fragmentTransaction.replace(R.id.feedListFrameLayout, webViewFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
 
+    }
+}

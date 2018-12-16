@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import com.example.yacinehc.mplrss.model.RSS;
 
+import java.time.LocalDateTime;
+
 public class CustomViewHolder extends RecyclerView.ViewHolder {
     public TextView title;
     public TextView description;
@@ -35,10 +37,13 @@ public class CustomViewHolder extends RecyclerView.ViewHolder {
             descriptionValue = descriptionValue.substring(0, 50) + "...";
         }
 
+        String pathValue = cursor.getString(cursor.getColumnIndex("path"));
+        LocalDateTime timeValue = LocalDateTime.parse(cursor.getString(cursor.getColumnIndex("time")));
+
         title.setText(titleValue);
         description.setText(descriptionValue);
         logo.setImageResource(R.drawable.rss_icon);
 
-        checkedLinearLayout.setRss(new RSS(linkValue, titleValue, descriptionValue));
+        checkedLinearLayout.setRss(new RSS(linkValue, titleValue, descriptionValue, pathValue, timeValue));
     }
 }

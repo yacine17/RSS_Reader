@@ -2,9 +2,6 @@ package com.example.yacinehc.mplrss;
 
 
 import android.app.DownloadManager;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +9,6 @@ import android.content.IntentFilter;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -28,13 +24,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RemoteViews;
 
 import com.example.yacinehc.mplrss.db.AccesDonnees;
 import com.example.yacinehc.mplrss.model.RSS;
+import com.example.yacinehc.mplrss.utils.DownloadHelper;
+import com.example.yacinehc.mplrss.utils.MyParser;
 import com.example.yacinehc.mplrss.utils.SimpleDialogFragment;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observer;
@@ -51,7 +47,7 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
     private RssListFragment thisInstance;
     private MyBroadcastReceiver broadcastReceiver;
     private RecyclerView mRecyclerView;
-    private int scrollPosition;
+    private Integer scrollPosition;
 
 
     public RssListFragment() {
@@ -75,6 +71,7 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
 
         customCursorRecyclerViewAdapter.getMyObsarvable().addObserver((Observer) getActivity());
         ((MainActivity) getActivity()).getMyObsarvable().addObserver(customCursorRecyclerViewAdapter);
+        customCursorRecyclerViewAdapter.setOnItemClickListener((CustomCursorRecyclerViewAdapter.OnItemClickListener) getActivity());
     }
 
     @Nullable
@@ -131,7 +128,7 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
             case 0:
                 Uri.Builder builder = new Uri.Builder();
                 Uri uri = builder.scheme("content").authority(AccesDonnees.authority).appendPath("rss").build();
-                return new CursorLoader(getActivity(), uri, new String[]{"title AS _id", "title", "description", "link"}, null, null, null);
+                return new CursorLoader(getActivity(), uri, new String[]{"title AS _id", "title", "description", "link", "path", "time"}, null, null, null);
             default:
                 throw new IllegalArgumentException("no id handled");
         }
@@ -172,72 +169,14 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
         }
     }
 
-    public void downloadFile(Uri uri) {
-        final DownloadManager downloadManager = (DownloadManager) getActivity().getSystemService(DOWNLOAD_SERVICE);
-        DownloadManager.Request request = new DownloadManager.Request(uri);
-        request.setDestinationInExternalFilesDir(getActivity(), Environment.DIRECTORY_DOWNLOADS, "mplrss");
-
-        request.setDescription(uri.toString());
-        request.allowScanningByMediaScanner();
-        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-
-        final long id = downloadManager.enqueue(request);
-        idList.add(id);
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                boolean downloading = true;
-                Notification notification;
-                NotificationManager notificationManager;
-
-                while (downloading) {
-                    DownloadManager.Query q = new DownloadManager.Query();
-                    q.setFilterById(id);
-
-                    Cursor cursor = downloadManager.query(q);
-
-                    cursor.moveToFirst();
-                    int bytes_downloaded = cursor.getInt(cursor.
-                            getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
-                    int bytes_total = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
-
-                    if (cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS)) == DownloadManager.STATUS_SUCCESSFUL) {
-                        downloading = false;
-                    }
-
-                    final int dl_progress = (bytes_downloaded / bytes_total) * 100;
-
-                    Intent intent = new Intent();
-                    final PendingIntent pendingIntent = PendingIntent.getActivity(
-                            getContext().getApplicationContext(), 0, intent, 0);
-
-                    notification = new Notification(R.drawable.rss_icon, "Téléchargement du flux",
-                            System.currentTimeMillis());
-
-                    notification.flags = notification.flags | Notification.FLAG_ONGOING_EVENT;
-                    notification.contentView = new RemoteViews(getContext().getApplicationContext().getPackageName(),
-                            R.layout.download_progress_bar);
-
-                    notification.contentView.setProgressBar(R.id.progress_bar, 100, dl_progress, false);
-
-                    getActivity().getApplicationContext();
-
-                    notificationManager = (NotificationManager) getActivity().getApplicationContext().getSystemService(
-                            Context.NOTIFICATION_SERVICE);
-                    notificationManager.notify((int) id, notification);
-                }
-            }
-        }).start();
-    }
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
     }
 
     public void addRss(Uri uri) {
-        downloadFile(uri);
+        DownloadHelper downloadHelper = new DownloadHelper(getActivity(), true);
+        idList.add(downloadHelper.downloadFile(uri));
     }
 
     class MyBroadcastReceiver extends BroadcastReceiver {
@@ -252,10 +191,10 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
                 Cursor cursor = downloadManager.query(query);
                 if (cursor.moveToFirst()) {
                     String localPath = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI));
-                    File file = new File(localPath.replace("file://", ""));
                     String link = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_URI));
                     try {
                         RSS rss = MyParser.getRss(localPath);
+
                         rss.setLink(link);
                         System.out.println("rss = " + rss);
                         AccesDonnees accesDonnees = new AccesDonnees(getActivity());
@@ -272,7 +211,6 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
                         Snackbar snackbar = Snackbar.make(getView(), "Erreur lors de téléchegement, vérifiez bien le lien", Snackbar.LENGTH_SHORT);
                         snackbar.show();
                     }
-                    file.delete();
                 }
             }
         }

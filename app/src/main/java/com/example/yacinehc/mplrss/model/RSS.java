@@ -3,6 +3,7 @@ package com.example.yacinehc.mplrss.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class RSS implements Parcelable {
@@ -20,17 +21,23 @@ public class RSS implements Parcelable {
     private String link;
     private String titre;
     private String description;
+    private String path;
+    private LocalDateTime time;
 
-    public RSS(String link, String titre, String description) {
+    public RSS(String link, String titre, String description, String path, LocalDateTime time) {
         this.link = link;
         this.titre = titre;
         this.description = description;
+        this.path = path;
+        this.time = time;
     }
 
     public RSS(Parcel parcel) {
         this.link = parcel.readString();
         this.titre = parcel.readString();
         this.description = parcel.readString();
+        this.path = parcel.readString();
+        this.time = (LocalDateTime) parcel.readSerializable();
     }
 
     @Override
@@ -43,6 +50,8 @@ public class RSS implements Parcelable {
         dest.writeString(link);
         dest.writeString(titre);
         dest.writeString(description);
+        dest.writeString(path);
+        dest.writeSerializable(time);
     }
 
     public String getLink() {
@@ -69,12 +78,30 @@ public class RSS implements Parcelable {
         this.description = description;
     }
 
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public LocalDateTime getTime() {
+        return time;
+    }
+
+    public void setTime(LocalDateTime time) {
+        this.time = time;
+    }
+
     @Override
     public String toString() {
         return "RSS{" +
                 "link='" + link + '\'' +
                 ", titre='" + titre + '\'' +
                 ", description='" + description + '\'' +
+                ", path='" + path + '\'' +
+                ", time=" + time +
                 '}';
     }
 

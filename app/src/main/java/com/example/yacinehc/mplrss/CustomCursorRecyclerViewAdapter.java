@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import com.example.yacinehc.mplrss.db.AccesDonnees;
 import com.example.yacinehc.mplrss.model.RSS;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +26,7 @@ public class CustomCursorRecyclerViewAdapter extends CursorRecyclerViewAdapter i
     private MyObsarvable myObsarvable;
     private Context context;
     private RssListFragment parent;
+    private OnItemClickListener onItemClickListener;
 
     public CustomCursorRecyclerViewAdapter(Context context, Cursor cursor, RssListFragment parent) {
         super(context, cursor);
@@ -108,6 +111,14 @@ public class CustomCursorRecyclerViewAdapter extends CursorRecyclerViewAdapter i
             if (arg instanceof String) {
                 if (arg.equals("deleteAll")) {
                     AccesDonnees accesDonnees = new AccesDonnees(context);
+
+                    for (RSS rss : checkedItems) {
+                        File file = new File(rss.getPath());
+                        if (file.exists()) {
+                            file.delete();
+                            Log.d(TAG, "File deleted");
+                        }
+                    }
                     accesDonnees.removeItems(checkedItems);
 
                     parent.getLoaderManager().restartLoader(0, null, parent);
@@ -125,6 +136,9 @@ public class CustomCursorRecyclerViewAdapter extends CursorRecyclerViewAdapter i
         public void onClick(View v) {
             if (checkedItems.size() == 0) {
                 //TODO Afficher les détails du flux
+                CheckedLinearLayout checkedLinearLayout = (CheckedLinearLayout) v;
+
+                onItemClickListener.displayRssItems(checkedLinearLayout.getRss());
             } else {
                 toggleCheckItem(v);
             }
@@ -144,4 +158,14 @@ public class CustomCursorRecyclerViewAdapter extends CursorRecyclerViewAdapter i
             super.setChanged();
         }
     }
+
+
+    interface OnItemClickListener {
+        void displayRssItems(RSS rss);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
 }
+

@@ -8,6 +8,7 @@ import android.net.Uri;
 
 import com.example.yacinehc.mplrss.model.RSS;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,8 @@ public class AccesDonnees {
     public final static String LINK_COLUMN = "link";
     public final static String TITLE_COLUMN = "title";
     public final static String DESCRIPTION_COLUMN = "description";
+    public final static String PATH_COLUMN = "path";
+    public final static String TIME_COLUMN = "time";
     public final static String authority = "fr.diderot.yacinehc.mplrssserver";
     private ContentResolver contentResolver;
 
@@ -26,16 +29,20 @@ public class AccesDonnees {
 
 
     public void addRSSFeed(RSS rss) {
-        addRSSFeed(rss.getLink(), rss.getTitre(), rss.getDescription());
+        addRSSFeed(rss.getLink(), rss.getTitre(), rss.getDescription(), rss.getPath(), rss.getTime());
     }
 
 
-    public void addRSSFeed(String link, String title, String description) {
-        ContentValues contentValues = new ContentValues();
+    public void addRSSFeed(String link, String title, String description, String path,
+                           LocalDateTime time) {
 
+        ContentValues contentValues = new ContentValues();
         contentValues.put(LINK_COLUMN, link);
         contentValues.put(TITLE_COLUMN, title);
         contentValues.put(DESCRIPTION_COLUMN, description);
+        contentValues.put(PATH_COLUMN, path);
+        contentValues.put(TIME_COLUMN, time.toString());
+
         Uri.Builder builder = new Uri.Builder();
 
         builder.scheme("content").authority(authority).appendPath(RSS_TABLE);
@@ -43,7 +50,7 @@ public class AccesDonnees {
         contentResolver.insert(uri, contentValues);
     }
 
-
+/*
     public ArrayList<RSS> getRSSFeed() {
         Uri.Builder builder = new Uri.Builder();
         builder.scheme("content").authority(authority).appendPath(RSS_TABLE);
@@ -63,7 +70,7 @@ public class AccesDonnees {
         }
 
         return list;
-    }
+    }*/
 
     public void removeItems(List<RSS> items) {
         Uri.Builder builder = new Uri.Builder();

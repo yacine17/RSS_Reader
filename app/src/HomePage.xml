@@ -1,0 +1,831 @@
+<?xml version="1.0"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:nyt="http://www.nytimes.com/namespaces/rss/2.0" version="2.0">
+  <channel>
+    <title>NYT &gt; Home Page</title>
+    <link>http://www.nytimes.com/pages/index.html?partner=rss&amp;emc=rss</link>
+    <atom:link rel="self" type="application/rss+xml" href="http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml"/>
+    <description/>
+    <language>en-us</language>
+    <copyright>Copyright 2018  The New York Times Company</copyright>
+    <lastBuildDate>Sun, 16 Dec 2018 14:48:24 GMT </lastBuildDate>
+    <image>
+      <title>NYT &gt; Home Page</title>
+      <url>https://static01.nyt.com/images/misc/NYT_logo_rss_250x40.png</url>
+      <link>http://www.nytimes.com/pages/index.html?partner=rss&amp;emc=rss</link>
+    </image>
+    <item>
+      <title>Climate Negotiators Reach an Overtime Deal to Keep Paris Pact Alive </title>
+      <link>https://www.nytimes.com/2018/12/15/climate/cop24-katowice-climate-summit.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/climate/cop24-katowice-climate-summit.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/15/climate/cop24-katowice-climate-summit.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/climate/16cli-cop24-2/16cli-cop24-2-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>Michal Kurtyka, president of the climate talks in Katowice, Poland, leapt over his desk as the final session ended.</media:description>
+      <media:credit>Janek Skarzynski/Agence France-Presse &#x2014; Getty Images</media:credit>
+      <description>The deal puts in place detailed implementation rules, but analysts said it was now up to individual countries to honor their commitments.</description>
+      <dc:creator>BRAD PLUMER</dc:creator>
+      <pubDate>Sun, 16 Dec 2018 02:15:54 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Global Warming</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Environment</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Greenhouse Gas Emissions</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Carbon Dioxide</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United Nations Framework Convention on Climate Change</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+    </item>
+    <item>
+      <title>How McKinsey Has Helped Raise the Stature of Authoritarian Governments</title>
+      <link>https://www.nytimes.com/2018/12/15/world/asia/mckinsey-china-russia.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/world/asia/mckinsey-china-russia.html</guid>
+      <atom:link rel="standout" href="https://www.nytimes.com/2018/12/15/world/asia/mckinsey-china-russia.html?partner=rss&amp;emc=rss"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/world/16mckinsey4/merlin_147347802_23fd36de-5493-450f-bee0-8d07a64f2688-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>Monuments to Kiev&#x2019;s founders burned during anti-government demonstrations in 2014. The protests led to the ouster of President Viktor F. Yanukovych, who rose to power with the help of McKinsey.</media:description>
+      <media:credit>Efrem Lukatsky/Associated Press</media:credit>
+      <description>At a time when democracies and their basic values are increasingly under attack, the iconic American company has sometimes served clients in ways that directly counter American interests.</description>
+      <dc:creator>WALT BOGDANICH and MICHAEL FORSYTHE</dc:creator>
+      <pubDate>Sun, 16 Dec 2018 04:03:59 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Embargoes and Sanctions</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Consultants</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">McKinsey &amp; Co</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">McKinsey Global Institute</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Manafort, Paul J</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Kushner, Jared</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Low Jho (1981- )</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Mohamad, Mahathir</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Najib Razak</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Yanukovych, Viktor F</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Poroshenko, Petro Olekseyevich</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">China</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Russia</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Ukraine</category>
+    </item>
+    <item>
+      <title>Ruling Striking Down Obamacare Moves Health Debate to Center Stage</title>
+      <link>https://www.nytimes.com/2018/12/15/us/politics/obamacare-ruling-health-care.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/us/politics/obamacare-ruling-health-care.html</guid>
+      <atom:link rel="standout" href="https://www.nytimes.com/2018/12/15/us/politics/obamacare-ruling-health-care.html?partner=rss&amp;emc=rss"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/us/16health-print/merlin_148100931_a7c881d8-7ea1-486a-a91b-7fc8a4a43488-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>Representative Nancy Pelosi, the top House Democrat, and others in her party vowed to move swiftly to defend the health care law.</media:description>
+      <media:credit>Sarah Silbiger/The New York Times</media:credit>
+      <description>A Texas judge&#x2019;s ruling that the Affordable Care Act is unconstitutional may not stand, but it will elevate health care as a pressing topic in a divided Washington.</description>
+      <dc:creator>SHERYL GAY STOLBERG, ROBERT PEAR and ABBY GOODNOUGH</dc:creator>
+      <pubDate>Sun, 16 Dec 2018 00:22:46 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Patient Protection and Affordable Care Act (2010)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Law and Legislation</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Health Insurance and Managed Care</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Medicaid</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+    </item>
+    <item>
+      <title>What the Obamacare Court Ruling Means for Open Enrollment</title>
+      <link>https://www.nytimes.com/2018/12/16/us/obamacare-enrollment-deadline.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/16/us/obamacare-enrollment-deadline.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/16/us/obamacare-enrollment-deadline.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/17/us/17xp-aca/merlin_146052195_5be9c7f6-9bb0-42b1-8318-eda90d3ec266-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>Open enrollment ended in most places on Saturday, but some states&#x2019; enrollment periods extend into January 2019.</media:description>
+      <media:credit>Joe Buglewicz for The New York Times</media:credit>
+      <description>A federal judge in Texas struck down the Affordable Care Act a day before the deadline to sign up for next year&#x2019;s coverage in most states.</description>
+      <dc:creator>SARAH MERVOSH</dc:creator>
+      <pubDate>Sun, 16 Dec 2018 10:00:04 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">HealthCare.gov</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Patient Protection and Affordable Care Act (2010)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Health Insurance and Managed Care</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Federal Courts (US)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Law and Legislation</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">O'Connor, Reed</category>
+    </item>
+    <item>
+      <title>In Weaponized Courts, Judge Who Halted Affordable Care Act Is a Conservative Favorite</title>
+      <link>https://www.nytimes.com/2018/12/15/us/judge-obamacare-reed-oconnor.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/us/judge-obamacare-reed-oconnor.html</guid>
+      <atom:link rel="standout" href="https://www.nytimes.com/2018/12/15/us/judge-obamacare-reed-oconnor.html?partner=rss&amp;emc=rss"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/us/politics/16judge/merlin_146136510_caa9bc12-3a97-4a77-8db8-d3515b2dc64f-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>On Friday, Judge Reed O&#x2019;Connor ruled that the Affordable Care Act&#x2019;s individual mandate requiring people to have health insurance &#x201C;can no longer be sustained as an exercise of Congress&#x2019;s tax power.&#x201D;</media:description>
+      <media:credit>Pablo Martinez Monsivais/Associated Press</media:credit>
+      <description>Judge Reed O&#x2019;Connor, a federal judge in Texas, has often sided with Republicans in their challenges to Democratic policies.</description>
+      <dc:creator>MANNY FERNANDEZ</dc:creator>
+      <pubDate>Sun, 16 Dec 2018 00:21:32 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Decisions and Verdicts</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Federal Courts (US)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Health Insurance and Managed Care</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Patient Protection and Affordable Care Act (2010)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">O'Connor, Reed</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Texas</category>
+    </item>
+    <item>
+      <title>Ryan Zinke, Face of Trump Environmental Rollbacks, Is Leaving Interior Department</title>
+      <link>https://www.nytimes.com/2018/12/15/us/ryan-zinke-interior-secretary.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/us/ryan-zinke-interior-secretary.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/15/us/ryan-zinke-interior-secretary.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/us/politics/16dc-zinke1/merlin_148012356_7a5acd09-e4b2-4222-bb4c-230833f8a63b-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>Mr. Zinke had been the subject of at least a half-dozen federal investigations, one of which was recently referred to the Justice Department.</media:description>
+      <media:credit>Cliff Owen/Associated Press</media:credit>
+      <description>Mr. Zinke is the latest Trump administration official to exit his position facing questions of ethical conflict.</description>
+      <dc:creator>JULIE TURKEWITZ and CORAL DAVENPORT</dc:creator>
+      <pubDate>Sun, 16 Dec 2018 00:53:51 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Appointments and Executive Changes</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Federal Lands</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Ethics and Official Misconduct</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">National Parks, Monuments and Seashores</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Environment</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Interior Department</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Zinke, Ryan (1961- )</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Bernhardt, David L</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Pruitt, Scott</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+    </item>
+    <item>
+      <title>Zinke&#x2019;s Likely Successor Is a Former Oil Lobbyist Who Has Influenced Trump&#x2019;s Energy Policy </title>
+      <link>https://www.nytimes.com/2018/12/15/climate/zinke-interior-successor-bernhardt.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/climate/zinke-interior-successor-bernhardt.html</guid>
+      <atom:link rel="standout" href="https://www.nytimes.com/2018/12/15/climate/zinke-interior-successor-bernhardt.html?partner=rss&amp;emc=rss"/>
+      <media:content url="https://static01.nyt.com/images/2018/11/09/climate/00CLI-BERNHARDT1/00CLI-BERNHARDT1-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>David Bernhardt, deputy secretary of the Interior, is expected to step in as acting head of the department in the wake of Mr. Zinke&#x2019;s departure.</media:description>
+      <media:credit>David Zalubowski/Associated Press</media:credit>
+      <description>With the Interior secretary's departure, the agency will likely be run for a time by David Bernhardt, a man who has played a central role in opening up public lands to drilling and mining.</description>
+      <dc:creator>CORAL DAVENPORT</dc:creator>
+      <pubDate>Sun, 16 Dec 2018 00:00:36 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Environment</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Land Use Policies</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Offshore Drilling and Exploration</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Federal Lands</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Interior Department</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Bernhardt, David L</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Zinke, Ryan (1961- )</category>
+    </item>
+    <item>
+      <title>Mulvaney Called Trump a &#x2018;Terrible Human Being&#x2019; in 2016</title>
+      <link>https://www.nytimes.com/2018/12/15/us/politics/mulvaney-trump-terrible-human-being.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/us/politics/mulvaney-trump-terrible-human-being.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/15/us/politics/mulvaney-trump-terrible-human-being.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/us/politics/16dc-mulvaney-print/16dc-mulvaney-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>A spokeswoman for Mick Mulvaney said remarks disparaging President Trump were &#x201C;old news&#x201D; and had been made before he had met Mr. Trump.</media:description>
+      <media:credit>Tom Brenner/The New York Times</media:credit>
+      <description>Mick Mulvaney, President Trump&#x2019;s pick to be acting White House chief of staff, made the comment in a debate, and offered similar remarks in a post on his campaign Facebook page.</description>
+      <dc:creator>MAGGIE HABERMAN</dc:creator>
+      <pubDate>Sun, 16 Dec 2018 00:35:40 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Mulvaney, Mick</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Presidential Election of 2016</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Appointments and Executive Changes</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Clinton, Hillary Rodham</category>
+    </item>
+    <item>
+      <title>As the Trumps Dodged Taxes, Their Tenants Paid a Price</title>
+      <link>https://www.nytimes.com/2018/12/15/us/politics/trump-tenants-taxes.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/us/politics/trump-tenants-taxes.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/15/us/politics/trump-tenants-taxes.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/us/16trumptenants-p1/merlin_147643749_03125ab6-5a1b-4a47-9438-9409b2a88180-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>Jack Leitner outside the Beach Haven Apartments in Brooklyn. A tax scheme created by the Trumps, who owned the building, artificially inflated rent paid by him and thousands of other tenants.</media:description>
+      <media:credit>Joshua Bright for The New York Times</media:credit>
+      <description>A phony business the Trumps created to siphon wealth from their empire drove up the rent for thousands living in their buildings.</description>
+      <dc:creator>RUSS BUETTNER and SUSANNE CRAIG</dc:creator>
+      <pubDate>Sat, 15 Dec 2018 20:08:59 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Renting and Leasing (Real Estate)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Real Estate and Housing (Residential)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Rent Control and Stabilization</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Federal Taxes (US)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Landlords</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Frauds and Swindling</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Inheritance and Estate Taxes</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Affordable Housing</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Tax Evasion</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Trump Organization</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Fred C</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Guthrie, Woody</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">New York City</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">New York State</category>
+    </item>
+    <item>
+      <title>11 of Our Best Weekend Reads</title>
+      <link>https://www.nytimes.com/2018/12/15/arts/11-of-our-best-weekend-reads.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/arts/11-of-our-best-weekend-reads.html</guid>
+      <atom:link rel="standout" href="https://www.nytimes.com/2018/12/15/arts/11-of-our-best-weekend-reads.html?partner=rss&amp;emc=rss"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/magazine/15ghost-weekend/16mag-Ghostship-image1-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description/>
+      <media:credit>Katy Grannan for The New York Times</media:credit>
+      <description>Ellen DeGeneres is not as nice as you think. Your apps aren&#x2019;t keeping your location secret. Our most popular recipes of 2018. And more.</description>
+      <dc:creator>KALY SOTO</dc:creator>
+      <pubDate>Sat, 15 Dec 2018 10:00:01 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">DeGeneres, Ellen</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Mobile Applications</category>
+    </item>
+    <item>
+      <title>Michael Cohen, Mick Mulvaney, Brexit: Your Weekend Briefing</title>
+      <link>https://www.nytimes.com/2018/12/16/briefing/michael-cohen-mick-mulvaney-brexit.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/16/briefing/michael-cohen-mick-mulvaney-brexit.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/16/briefing/michael-cohen-mick-mulvaney-brexit.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/15/briefing/16weekend-briefing2/16weekend-briefing2-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description/>
+      <media:credit>Stephanie Keith for The New York Times</media:credit>
+      <description>Here&#x2019;s what you need to know about the week&#x2019;s top stories.</description>
+      <dc:creator>INYOUNG KANG and SARAH ECKINGER</dc:creator>
+      <pubDate>Sun, 16 Dec 2018 14:00:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>Don&#x2019;t Tear Up This Treaty</title>
+      <link>https://www.nytimes.com/2018/12/15/opinion/sunday/trump-russia-nuclear-treaty-inf.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/opinion/sunday/trump-russia-nuclear-treaty-inf.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/15/opinion/sunday/trump-russia-nuclear-treaty-inf.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/15/opinion/15ArmsControl-edt/15ArmsControl-edt-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description/>
+      <media:credit>Ryan Garcia</media:credit>
+      <description>Arms control isn&#x2019;t perfect. But abandoning treaties without a plan for the future is dangerous.</description>
+      <dc:creator>THE EDITORIAL BOARD</dc:creator>
+      <pubDate>Sat, 15 Dec 2018 19:30:03 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Strategic Arms Reduction Treaty</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Arms Control and Limitation and Disarmament</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Nuclear Weapons</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">North Atlantic Treaty Organization</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">State Department</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Bolton, John R</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Gorbachev, Mikhail S</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Obama, Barack</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+    </item>
+    <item>
+      <title>How to Be More Resilient</title>
+      <link>https://www.nytimes.com/2018/12/15/opinion/sunday/stress-anxiety-depression-research.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/opinion/sunday/stress-anxiety-depression-research.html</guid>
+      <atom:link rel="standout" href="https://www.nytimes.com/2018/12/15/opinion/sunday/stress-anxiety-depression-research.html?partner=rss&amp;emc=rss"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/opinion/sunday/16friedman/16friedman-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description/>
+      <media:credit>Ariel Davis</media:credit>
+      <description>Some people are just genetically tougher. But you can train your brain to better handle stress.</description>
+      <dc:creator>RICHARD A. FRIEDMAN</dc:creator>
+      <pubDate>Sat, 15 Dec 2018 19:30:04 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Brain</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Anxiety and Stress</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Depression (Mental)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Emotions</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Mental Health and Disorders</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Akil, Huda</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Chicago (Ill)</category>
+    </item>
+    <item>
+      <title>Where Are All the Female Architects?</title>
+      <link>https://www.nytimes.com/2018/12/15/opinion/sunday/women-architects.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/opinion/sunday/women-architects.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/15/opinion/sunday/women-architects.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/opinion/sunday/16arieff/16arieff-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description/>
+      <media:credit>Simone Noronha</media:credit>
+      <description>Nearly half of architecture students are women. Why are so few sticking with the industry after graduation?</description>
+      <dc:creator>ALLISON ARIEFF</dc:creator>
+      <pubDate>Sat, 15 Dec 2018 19:17:09 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Architecture</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Women and Girls</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Discrimination</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">#MeToo Movement</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Workplace Environment</category>
+    </item>
+    <item>
+      <title>So, I Asked People in Saudi Arabia About Their Mad, Murderous Crown Prince</title>
+      <link>https://www.nytimes.com/2018/12/15/opinion/sunday/saudi-arabia-yemen-khashoggi.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/opinion/sunday/saudi-arabia-yemen-khashoggi.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/15/opinion/sunday/saudi-arabia-yemen-khashoggi.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <description>The U.S. has leverage over Riyadh. Let&#x2019;s use it.</description>
+      <dc:creator>NICHOLAS KRISTOF</dc:creator>
+      <pubDate>Sat, 15 Dec 2018 19:30:01 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Defense and Military Forces</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Women's Rights</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Assassinations and Attempted Assassinations</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Arms Trade</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Women and Girls</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Political Prisoners</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Saudi Aramco</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Senate</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Khashoggi, Jamal</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Mohammed bin Salman (1985- )</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Riyadh (Saudi Arabia)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Saudi Arabia</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Yemen</category>
+    </item>
+    <item>
+      <title>Michael Cohen Got Wise. Will America?</title>
+      <link>https://www.nytimes.com/2018/12/14/opinion/michael-cohen-trump.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/14/opinion/michael-cohen-trump.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/14/opinion/michael-cohen-trump.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/opinion/sunday/16bruni/16bruni-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description/>
+      <media:credit>Ben Wiseman</media:credit>
+      <description>His sad journey is an extreme version of the country&#x2019;s.</description>
+      <dc:creator>FRANK BRUNI</dc:creator>
+      <pubDate>Fri, 14 Dec 2018 19:22:11 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Presidential Election of 2016</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Cohen, Michael D (1966- )</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+    </item>
+    <item>
+      <title>Who Killed The Weekly Standard?</title>
+      <link>https://www.nytimes.com/2018/12/15/opinion/weekly-standard-closing-conservatism.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/opinion/weekly-standard-closing-conservatism.html</guid>
+      <atom:link rel="standout" href="https://www.nytimes.com/2018/12/15/opinion/weekly-standard-closing-conservatism.html?partner=rss&amp;emc=rss"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/17/opinion/17BROOKS/17BROOKS-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>Steve Hayes, editor in chief of The Weekly Standard, at his office in Washington.</media:description>
+      <media:credit>Lexey Swall for The New York Times</media:credit>
+      <description>The bureaucratic mind has a temporary triumph.</description>
+      <dc:creator>DAVID BROOKS</dc:creator>
+      <pubDate>Sun, 16 Dec 2018 03:01:36 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Conservatism (US Politics)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Weekly Standard</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Clarity Media Group</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Anschutz, Philip F</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Anschutz Corp</category>
+    </item>
+    <item>
+      <title>Is There Such a Thing as an Authoritarian Voter?</title>
+      <link>https://www.nytimes.com/2018/12/15/opinion/sunday/trump-authoritarian-voters-political-science.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/opinion/sunday/trump-authoritarian-voters-political-science.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/15/opinion/sunday/trump-authoritarian-voters-political-science.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/opinion/16Worthen04/16Worthen04-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description/>
+      <media:credit>Gabriella Demczuk for The New York Times</media:credit>
+      <description>Political scientists want to know. They&#x2019;re not the only ones.</description>
+      <dc:creator>MOLLY WORTHEN</dc:creator>
+      <pubDate>Sat, 15 Dec 2018 19:30:06 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Psychology and Psychologists</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Voting and Voters</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Adorno, Theodor W</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+    </item>
+    <item>
+      <title>Survival of the Sneakiest</title>
+      <link>https://www.nytimes.com/2018/12/15/opinion/sunday/evolution-natural-selection.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/opinion/sunday/evolution-natural-selection.html</guid>
+      <atom:link rel="standout" href="https://www.nytimes.com/2018/12/15/opinion/sunday/evolution-natural-selection.html?partner=rss&amp;emc=rss"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/opinion/16barash/16barash-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>A bull elk on the Nature Conservancy&#x2019;s Zumwalt Prairie Preserve. Aggressive bulls win control of harems, but unassuming males sometimes sneak in and pass along their own genes instead.</media:description>
+      <media:credit>Max Whittaker for The New York Times</media:credit>
+      <description>Stealth can win out over speed and strength in the arms race of evolution.</description>
+      <dc:creator>DAVID P. BARASH</dc:creator>
+      <pubDate>Sun, 16 Dec 2018 02:44:40 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Reproduction (Biological)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Evolution (Biology)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Animal Behavior</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Bible</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Genetics and Heredity</category>
+    </item>
+    <item>
+      <title>Internet Church Isn&#x2019;t Really Church </title>
+      <link>https://www.nytimes.com/2018/12/15/opinion/sunday/church-live-streaming-religion.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/opinion/sunday/church-live-streaming-religion.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/15/opinion/sunday/church-live-streaming-religion.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/opinion/16TURNER02/16TURNER02-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>A service at the Christian Cultural Center in Brooklyn. More churches are offering live-streaming of their services, but does that offer the benefits of being in a room with fellow worshipers? </media:description>
+      <media:credit>Demetrius Freeman for The New York Times</media:credit>
+      <description>Showing up in person is exhausting, especially compared with live-streaming. But being together is the whole point.</description>
+      <dc:creator>LAURA TURNER</dc:creator>
+      <pubDate>Sat, 15 Dec 2018 19:30:04 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Computers and the Internet</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Christmas</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Bible</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Video Recordings, Downloads and Streaming</category>
+    </item>
+    <item>
+      <title>The Family History DNA Can&#x2019;t Reveal</title>
+      <link>https://www.nytimes.com/2018/12/15/opinion/sunday/dna-ancestry-test.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/opinion/sunday/dna-ancestry-test.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/15/opinion/sunday/dna-ancestry-test.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/opinion/sunday/16greenidge/16greenidge-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description/>
+      <media:credit>Benjamin Currie</media:credit>
+      <description>I could try to find out where my ancestors may have come from, but that is never going to show me what I&#x2019;ve actually inherited.</description>
+      <dc:creator>KAITLYN GREENIDGE</dc:creator>
+      <pubDate>Sat, 15 Dec 2018 19:30:08 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Genealogy</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Families and Family Life</category>
+    </item>
+    <item>
+      <title>A Museum Honoring Judy Chicago, Star of Feminist Art? Not in This &#x2018;Sleepy Little Town&#x2019;</title>
+      <link>https://www.nytimes.com/2018/12/15/us/judy-chicago-belen-new-mexico-museum.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/us/judy-chicago-belen-new-mexico-museum.html</guid>
+      <atom:link rel="standout" href="https://www.nytimes.com/2018/12/15/us/judy-chicago-belen-new-mexico-museum.html?partner=rss&amp;emc=rss"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/us/16JUDYCHICAGO1/merlin_148128456_e5b55e8f-d22a-4f10-b554-3d2b12163004-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>Judy Chicago may be a star of the art world, but a proposed museum in her honor has roused a fierce dispute that is dividing Belen, N.M.</media:description>
+      <media:credit>Adria Malcolm for The New York Times</media:credit>
+      <description>New Mexico has long been a mecca for artists. But a proposal in the feminist artist&#x2019;s hometown, Belen, to open a museum in her honor has exposed cultural fractures.</description>
+      <dc:creator>SIMON ROMERO</dc:creator>
+      <pubDate>Sun, 16 Dec 2018 01:05:16 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Art</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Chicago, Judy</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Belen (NM)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Museums</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Brooklyn Museum</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">City Councils</category>
+    </item>
+    <item>
+      <title>Pete Davidson Is Largely Absent From &#x2018;Saturday Night Live&#x2019;</title>
+      <link>https://www.nytimes.com/2018/12/16/arts/television/saturday-night-live.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/16/arts/television/saturday-night-live.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/16/arts/television/saturday-night-live.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <description>Davidson made only brief appearances in the final live show of 2018, hours after publishing an Instagram post that elicited concern about his safety and well-being.</description>
+      <dc:creator>DAVE ITZKOFF</dc:creator>
+      <pubDate>Sun, 16 Dec 2018 07:47:52 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Television</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_ttl">Saturday Night Live (TV Program)</category>
+    </item>
+    <item>
+      <title>Father of Migrant Girl Who Died in U.S. Custody Disputes Border Patrol Account</title>
+      <link>https://www.nytimes.com/2018/12/15/us/migrant-girl-border-patrol-jakelin.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/us/migrant-girl-border-patrol-jakelin.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/15/us/migrant-girl-border-patrol-jakelin.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/us/16MIGRANT/16MIGRANT-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>Ruben Garcia, the director of an El Paso shelter that is caring for the father of Jakelin Caal Maquin, who died in United States custody this month. Mr. Garcia delivered a statement from the lawyers of Jakelin&#x2019;s father at a news conference on Saturday.</media:description>
+      <media:credit>Rudy Gutierrez/The El Paso Times, via Associated Press</media:credit>
+      <description>The father of Jakelin Caal Maquin said his daughter was healthy before they were detained by the authorities in the New Mexico desert this month.</description>
+      <dc:creator>SIMON ROMERO</dc:creator>
+      <pubDate>Sun, 16 Dec 2018 02:07:22 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Illegal Immigration</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Border Patrol (US)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Maquin, Jakelin Caal</category>
+    </item>
+    <item>
+      <title>Investors Have Nowhere to Hide as Stocks, Bonds and Commodities All Tumble</title>
+      <link>https://www.nytimes.com/2018/12/15/business/stock-market-decline-commodities-bonds.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/business/stock-market-decline-commodities-bonds.html</guid>
+      <atom:link rel="standout" href="https://www.nytimes.com/2018/12/15/business/stock-market-decline-commodities-bonds.html?partner=rss&amp;emc=rss"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/us/16nowheretogo-print/merlin_147967374_12ae3db1-bfc3-42ca-a185-d5a1a80e0000-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>On the New York Stock Exchange, as at other exchanges around the world, shares have been pummeled.</media:description>
+      <media:credit>Mark Lennihan/Associated Press</media:credit>
+      <description>For the first time in decades, every major investment has fared poorly. The question is whether trouble in the markets will undermine economic growth.</description>
+      <dc:creator>MATT PHILLIPS</dc:creator>
+      <pubDate>Sat, 15 Dec 2018 18:41:47 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Stocks and Bonds</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Economy</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Government Bonds</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Nasdaq Composite Index</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Quantitative Easing</category>
+    </item>
+    <item>
+      <title>Amid Russia Tensions, Ukraine Moves Toward Separate Church</title>
+      <link>https://www.nytimes.com/2018/12/15/world/europe/russia-ukraine-orthodox-church.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/world/europe/russia-ukraine-orthodox-church.html</guid>
+      <atom:link rel="standout" href="https://www.nytimes.com/2018/12/15/world/europe/russia-ukraine-orthodox-church.html?partner=rss&amp;emc=rss"/>
+      <description>Ukraine took a major step toward establishing an Orthodox Church independent of Moscow, a move likely to increase already heightened tensions</description>
+      <dc:creator>NEIL MacFARQUHAR</dc:creator>
+      <pubDate>Sat, 15 Dec 2018 21:41:18 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Russian Orthodox Church</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Martial Law</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Priests</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Eastern Orthodox Church</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Poroshenko, Petro Olekseyevich</category>
+    </item>
+    <item>
+      <title>Lawyer&#x2019;s Status Throws Genocide Conviction of Khmer Rouge Leader Into Doubt</title>
+      <link>https://www.nytimes.com/2018/12/16/world/asia/cambodia-lawyer-khmer-rouge-genocide.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/16/world/asia/cambodia-lawyer-khmer-rouge-genocide.html</guid>
+      <atom:link rel="standout" href="https://www.nytimes.com/2018/12/16/world/asia/cambodia-lawyer-khmer-rouge-genocide.html?partner=rss&amp;emc=rss"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/17/world/17cambodia/17cambodia-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>Journalists in Phnom Penh, Cambodia, in November listening to a live feed of the genocide trial for Nuon Chea, a former Khmer Rouge leader. Mr. Nuon Chea&#x2019;s Dutch defense lawyer let his bar membership lapse.</media:description>
+      <media:credit>Adam Dean for The New York Times</media:credit>
+      <description>An international tribunal dismissed a Dutch lawyer who had defended one of Khmer Rouge leaders. The lawyer&#x2019;s bar membership lapsed in 2016.</description>
+      <dc:creator>JULIA WALLACE</dc:creator>
+      <pubDate>Sun, 16 Dec 2018 10:41:58 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Cambodia</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Koppe, Victor</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Nuon Chea</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">War Crimes, Genocide and Crimes Against Humanity</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Legal Profession</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Courts and the Judiciary</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Khmer Rouge</category>
+    </item>
+    <item>
+      <title>A Bright Green &#x2018;Christmas Comet&#x2019; Will Fly the Closest to Earth in Centuries</title>
+      <link>https://www.nytimes.com/2018/12/15/science/green-comet-46p-wirtanen.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/science/green-comet-46p-wirtanen.html</guid>
+      <atom:link rel="standout" href="https://www.nytimes.com/2018/12/15/science/green-comet-46p-wirtanen.html?partner=rss&amp;emc=rss"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/autossell/16xp-comet/16xp-comet-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>The comet 46P/Wirtanen as seen from France through a telescope this month.</media:description>
+      <media:credit>Nicolas Biver/Agence France-Presse &#x2014; Getty Images</media:credit>
+      <description>The comet, called 46P/Wirtanen, will streak near Earth on Sunday and be visible in some places with the naked eye.</description>
+      <dc:creator>CHRISTINA CARON</dc:creator>
+      <pubDate>Sun, 16 Dec 2018 00:28:59 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Comets</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_keyword">46P/Wirtanen</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">National Aeronautics and Space Administration</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Space and Astronomy</category>
+    </item>
+    <item>
+      <title>NORWAY Dispatch: Where Reindeer Are a Way of Life</title>
+      <link>https://www.nytimes.com/2018/12/16/world/europe/reindeer-norway-sami.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/16/world/europe/reindeer-norway-sami.html</guid>
+      <atom:link rel="standout" href="https://www.nytimes.com/2018/12/16/world/europe/reindeer-norway-sami.html?partner=rss&amp;emc=rss"/>
+      <media:content url="https://static01.nyt.com/images/2018/05/11/world/europe/xxsami-visual-slide-I7YN/xxsami-visual-slide-I7YN-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>A boy jumping into the snow in Kautokeino, where many families are herders.</media:description>
+      <media:credit>Nadia Shira Cohen for The New York Times</media:credit>
+      <description>The indigenous Sami people have fought for generations to preserve their identity. The latest battles are against Norway&#x2019;s limits on reindeer herds.</description>
+      <dc:creator>NADIA SHIRA COHEN</dc:creator>
+      <pubDate>Sun, 16 Dec 2018 10:22:30 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Indigenous People</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Reindeer</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Land Use Policies</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Norway</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_keyword">Sami</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">your-feed-photojournalism</category>
+    </item>
+    <item>
+      <title>The Special Counsel Is Fighting a Witness in Court. Who Is It?</title>
+      <link>https://www.nytimes.com/2018/12/15/us/politics/special-counsel-subpoena.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/15/us/politics/special-counsel-subpoena.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/15/us/politics/special-counsel-subpoena.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/us/politics/16dc-subpoena-print/merlin_132922950_1592c1ed-69b6-4182-b280-ae80890338ae-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>The investigation led by the special counsel, Robert S. Mueller III, is shrouded in mysteries.</media:description>
+      <media:credit>Doug Mills/The New York Times</media:credit>
+      <description>The office of Robert S. Mueller III is in a closed-door legal battle to force a witness to testify. Here&#x2019;s what we know about the dispute.</description>
+      <dc:creator>MICHAEL S. SCHMIDT</dc:creator>
+      <pubDate>Sun, 16 Dec 2018 00:49:46 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Russian Interference in 2016 US Elections and Ties to Trump Associates</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Witnesses</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Classified Information and State Secrets</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">WikiLeaks</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Mueller, Robert S III</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Stone, Roger J Jr</category>
+    </item>
+    <item>
+      <title>On Pro Football: The Ravens&#x2019; Down-to-Earth Approach Is Unnerving the N.F.L.</title>
+      <link>https://www.nytimes.com/2018/12/14/sports/baltimore-ravens-lamar-jackson.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/14/sports/baltimore-ravens-lamar-jackson.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/14/sports/baltimore-ravens-lamar-jackson.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/sports/16ravens-top/16ravens-top-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>Quarterback Lamar Jackson is averaging 84 yards per game rushing since taking over as a starter for the Ravens.</media:description>
+      <media:credit>David Eulitt/Getty Images</media:credit>
+      <description>In an era when offenses emphasize the pass, Baltimore is doing just the opposite, and its emerging ground game is leaving other teams flummoxed.</description>
+      <dc:creator>BILL PENNINGTON</dc:creator>
+      <pubDate>Fri, 14 Dec 2018 22:20:45 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Football</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Baltimore Ravens</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Harbaugh, John</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Jackson, Lamar (1997- )</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Flacco, Joe</category>
+    </item>
+    <item>
+      <title>Maybe It&#x2019;s Not Taxes That Scare Off Business but Failing Subways</title>
+      <link>https://www.nytimes.com/2018/12/13/nyregion/maybe-its-not-taxes-that-scare-off-business-but-failing-subways.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/13/nyregion/maybe-its-not-taxes-that-scare-off-business-but-failing-subways.html</guid>
+      <atom:link rel="standout" href="https://www.nytimes.com/2018/12/13/nyregion/maybe-its-not-taxes-that-scare-off-business-but-failing-subways.html?partner=rss&amp;emc=rss"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/nyregion/16big/16big-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>The evening rush at Court Square station in Long Island City, Queens, where Amazon plans to build a new headquarters.</media:description>
+      <media:credit>Hiroko Masuike/The New York Times</media:credit>
+      <description>Amazon is coming to New York despite the city&#x2019;s transit horrors. Other companies may not be so forgiving.</description>
+      <dc:creator>GINIA BELLAFANTE</dc:creator>
+      <pubDate>Thu, 13 Dec 2018 21:07:21 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Relocation of Business</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Infrastructure (Public Works)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Transit Systems</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">AllianceBernstein Holding LP</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Partnership for New York City</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Nashville (Tenn)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">New York City</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Amazon.com Inc</category>
+    </item>
+    <item>
+      <title>Playlist: The Playlist: David Byrne&#x2019;s Paranoid Party, and 10 More New Songs</title>
+      <link>https://www.nytimes.com/2018/12/14/arts/music/playlist-david-byrne-avril-lavigne-robin-thicke.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/14/arts/music/playlist-david-byrne-avril-lavigne-robin-thicke.html</guid>
+      <atom:link rel="standout" href="https://www.nytimes.com/2018/12/14/arts/music/playlist-david-byrne-avril-lavigne-robin-thicke.html?partner=rss&amp;emc=rss"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/15/arts/15playlist/15playlist-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>David Byrne recorded a live EP in Brooklyn that&#x2019;s named after a rave review in the British music magazine NME.</media:description>
+      <media:credit>Bryan Derballa for The New York Times</media:credit>
+      <description>Hear new tracks by Avril Lavigne, Robin Thicke, American Football and others.</description>
+      <dc:creator>JON PARELES, JON CARAMANICA and GIOVANNI RUSSONELLO</dc:creator>
+      <pubDate>Sat, 15 Dec 2018 00:41:22 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Pop and Rock Music</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Jazz</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Country Music</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">American Football (Music Group)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Byrne, David</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Thicke, Robin</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Whitley, Trixie</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Lavigne, Avril</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">May, Ego Ella</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Temptation (Music Group)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Filmore, Tyler (Filmore)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Audet, Jean-Sebastian (Yves Jarvis)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Palmer, Jason (1979- )</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">San, Eric (Kid Koala)</category>
+    </item>
+    <item>
+      <title>The Fix: Spying on the Dog (or Cat) </title>
+      <link>https://www.nytimes.com/2018/12/11/realestate/spying-on-the-dog-or-cat.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/11/realestate/spying-on-the-dog-or-cat.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/11/realestate/spying-on-the-dog-or-cat.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <description>Do you really want to know what your pets are doing while you&#x2019;re away?</description>
+      <dc:creator>MICHELLE HIGGINS</dc:creator>
+      <pubDate>Fri, 14 Dec 2018 16:21:32 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Real Estate and Housing (Residential)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Science and Technology</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Pets</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Home Automation and Smart Homes</category>
+    </item>
+    <item>
+      <title>Editors&#x2019; Choice: 9 New Books We Recommend This Week</title>
+      <link>https://www.nytimes.com/2018/12/13/books/review/9-new-books-we-recommend-this-week.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/13/books/review/9-new-books-we-recommend-this-week.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/13/books/review/9-new-books-we-recommend-this-week.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <description>Suggested reading from critics and editors at The New York Times.</description>
+      <dc:creator/>
+      <pubDate>Thu, 13 Dec 2018 17:51:24 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Books and Literature</category>
+    </item>
+    <item>
+      <title>5 Cheap(ish) Things for Cold Weather Running</title>
+      <link>https://www.nytimes.com/2018/12/13/smarter-living/wirecutter/5-cheap-ish-things-for-cold-weather-running.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/13/smarter-living/wirecutter/5-cheap-ish-things-for-cold-weather-running.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/13/smarter-living/wirecutter/5-cheap-ish-things-for-cold-weather-running.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/13/smarter-living/13sl-newsletter1/13sl-lnewsletter1-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description/>
+      <media:credit>Karsten Moran for The New York Times</media:credit>
+      <description>Brrrrr.</description>
+      <dc:creator>JEN A. MILLER</dc:creator>
+      <pubDate>Thu, 13 Dec 2018 15:08:54 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Gifts</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Christmas</category>
+    </item>
+    <item>
+      <title>How to Officiate Your First Wedding (and Why You&#x2019;d Want To)</title>
+      <link>https://www.nytimes.com/2018/12/12/smarter-living/how-to-officiate-your-first-wedding-and-why-youd-want-to.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/12/smarter-living/how-to-officiate-your-first-wedding-and-why-youd-want-to.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/12/smarter-living/how-to-officiate-your-first-wedding-and-why-youd-want-to.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <media:content url="https://static01.nyt.com/images/2018/09/25/smarter-living/00sl_weddings/00sl_weddings-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description/>
+      <media:credit>Albert Tercero</media:credit>
+      <description>You can help a friend or loved one turn their special day into something remarkable, if you&#x2019;re willing &#x2014; but getting ordained is the easy part.</description>
+      <dc:creator>WHITSON GORDON</dc:creator>
+      <pubDate>Thu, 13 Dec 2018 16:54:49 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Weddings and Engagements</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Marriages</category>
+    </item>
+    <item>
+      <title>Vows: She Proposed That He Be Her Caddie. They&#x2019;ve Worked to Avoid the Rough.</title>
+      <link>https://www.nytimes.com/2018/12/14/fashion/weddings/former-golfer-jean-chua-of-malaysia-marries-wes-griswold.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/14/fashion/weddings/former-golfer-jean-chua-of-malaysia-marries-wes-griswold.html</guid>
+      <atom:link rel="standout" href="https://www.nytimes.com/2018/12/14/fashion/weddings/former-golfer-jean-chua-of-malaysia-marries-wes-griswold.html?partner=rss&amp;emc=rss"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/fashion/weddings/16VOWS1/16VOWS1-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>Jean Chua and Wesley Griswold were married Nov. 11 in Asheville, N.C. They both were college golfers and, later, he caddied for her when she played professionally.</media:description>
+      <media:credit>Jacob Biba for The New York Times</media:credit>
+      <description>Jean Chua first asked Wesley Griswold to join her on the L.P.G.A. Tour, but he was not a pandering caddie, or boyfriend, and that didn&#x2019;t always sit well.</description>
+      <dc:creator>LINDA MARX</dc:creator>
+      <pubDate>Fri, 14 Dec 2018 11:00:01 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Weddings and Engagements</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Golf</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Ladies Professional Golf Assn</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Wake Forest University</category>
+    </item>
+    <item>
+      <title>Sunday Routine: How Marky Ramone, Punk Rocker, Spends His Sundays</title>
+      <link>https://www.nytimes.com/2018/12/14/nyregion/how-marky-ramone-punk-rocker-spends-his-sundays.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/14/nyregion/how-marky-ramone-punk-rocker-spends-his-sundays.html</guid>
+      <atom:link rel="standout" href="https://www.nytimes.com/2018/12/14/nyregion/how-marky-ramone-punk-rocker-spends-his-sundays.html?partner=rss&amp;emc=rss"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/16/nyregion/16routine1/16routine1-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>At home.</media:description>
+      <media:credit>Dave Sanders for The New York Times</media:credit>
+      <description>When he is not compiling music for his SiriusXM show or internet radio channel, Ramone takes in live jazz and watches retro sci-fi movies.</description>
+      <dc:creator>TAMMY La GORCE</dc:creator>
+      <pubDate>Fri, 14 Dec 2018 19:02:13 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Pop and Rock Music</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Ramones (Music Group)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Richard Hell and the Voidoids</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Sirius XM Radio Inc</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Cutchogue (NY)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Brooklyn Heights (Brooklyn, NY)</category>
+    </item>
+    <item>
+      <title>Critic&#x2019;s Notebook: On &#x2018;Counterpart&#x2019; and &#x2018;Berlin Station,&#x2019; Spies to Keep You Company in the Cold</title>
+      <link>https://www.nytimes.com/2018/12/12/arts/television/on-counterpart-berlin-station.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/12/arts/television/on-counterpart-berlin-station.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/12/arts/television/on-counterpart-berlin-station.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/13/arts/13counterpart1-copy/13counterpart1-copy-moth-v2.jpg" medium="image" height="151" width="151"/>
+      <media:description>J.K. Simmons as Howard Silk in &#x201C;Counterpart.&#x201D;</media:description>
+      <media:credit>Nicole Wilder-Shattuck/Starz</media:credit>
+      <description>Two entertaining espionage thrillers, on Starz and Epix, both take place in Berlin, where secret agents are part of the atmosphere.</description>
+      <dc:creator>MIKE HALE</dc:creator>
+      <pubDate>Wed, 12 Dec 2018 20:32:53 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Television</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_ttl">Berlin Station (TV Program)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_ttl">Counterpart (TV Program)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Epix</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Starz</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Marks, Justin (Screenwriter)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Simmons, J K</category>
+    </item>
+    <item>
+      <title>Five Weeknight Dishes: Fast Recipes for the Craziest Time of Year</title>
+      <link>https://www.nytimes.com/2018/12/14/dining/fast-recipes-for-the-craziest-time-of-year.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/14/dining/fast-recipes-for-the-craziest-time-of-year.html</guid>
+      <atom:link rel="standout" href="https://www.nytimes.com/2018/12/14/dining/fast-recipes-for-the-craziest-time-of-year.html?partner=rss&amp;emc=rss"/>
+      <media:content url="https://static01.nyt.com/images/2018/10/19/dining/dt-midnight-pasta-horizontal/dt-midnight-pasta-horizontal-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>
+        <p>David Tanis&#x2019;s midnight pasta.</p>
+      </media:description>
+      <media:credit>Romulo Yanes for The New York Times. Food Stylist: Vivian Lui.</media:credit>
+      <description>It&#x2019;s the busy season, so give yourself a break with recipes you can knock out in record time.</description>
+      <dc:creator>EMILY WEINSTEIN</dc:creator>
+      <pubDate>Fri, 14 Dec 2018 17:30:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>Best Movies of 2018</title>
+      <link>https://www.nytimes.com/2018/12/05/movies/best-movies.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/05/movies/best-movies.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/05/movies/best-movies.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/09/arts/09BESTOFFILM2018/09BESTOFFILM2018-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>The year&#x2019;s best movies include, clockwise from top left, &#x201C;Minding the Gap,&#x201D; &#x201C;First Reformed,&#x201D; &#x201C;Burning,&#x201D; &#x201C;Happy as Lazzaro&#x201D; and &#x201C;Private Life.&#x201D;</media:description>
+      <media:credit>Clockwise from bottom left: Jojo Whilden/Netflix; Hulu; A24; Well Go Usa; Netflix</media:credit>
+      <description>Our chief film critics choose the films that moved them this year.</description>
+      <dc:creator>MANOHLA DARGIS and A.O. SCOTT</dc:creator>
+      <pubDate>Fri, 14 Dec 2018 23:32:57 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Movies</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_ttl">Bisbee '17 (Movie)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_ttl">BlacKkKlansman (Movie)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_ttl">Burning (Movie)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_ttl">Capernaum (Movie)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_ttl">First Reformed (Movie)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_ttl">Golden Exits (Movie)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_ttl">Happy as Lazzaro (Movie)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_ttl">Minding the Gap (Movie)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_ttl">Monrovia, Indiana (Movie)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_ttl">Private Life (Movie)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_ttl">Roma (Movie)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_ttl">Shoplifters (Movie)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_ttl">Zama (Movie)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_ttl">The Death of Stalin (Movie)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_ttl">Hale County This Morning, This Evening (Movie)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_ttl">Can You Ever Forgive Me? (Movie)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_ttl">The Favourite (Movie)</category>
+    </item>
+    <item>
+      <title>N.F.L. Injury Analysis as Fast as You Can Say Ouch</title>
+      <link>https://www.nytimes.com/2018/12/13/sports/nfl-injuries-pro-football-doc.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/13/sports/nfl-injuries-pro-football-doc.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/13/sports/nfl-injuries-pro-football-doc.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/15/sports/11nfldoc-web1/11nfldoc-web1-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>Dr. David Chao has plenty of screens going on the typical N.F.L. Sunday at his home in La Jolla, Calif.</media:description>
+      <media:credit>Sandy Huffaker for The New York Times</media:credit>
+      <description>David Chao, a former team doctor for the Chargers, has become a popular in-game analyst on Twitter from his couch. But is it responsible for him and others to diagnose from a distance?</description>
+      <dc:creator>ZACH SCHONBRUN</dc:creator>
+      <pubDate>Fri, 14 Dec 2018 20:51:37 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Football</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Sports Injuries</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Chao, David</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">National Football League</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Social Media</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Ethics and Official Misconduct</category>
+    </item>
+    <item>
+      <title>A Salamander of Legend Emerges From Southern Swamps</title>
+      <link>https://www.nytimes.com/2018/12/14/science/salamander-reticulated-siren.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/14/science/salamander-reticulated-siren.html</guid>
+      <atom:link rel="standout" href="https://www.nytimes.com/2018/12/14/science/salamander-reticulated-siren.html?partner=rss&amp;emc=rss"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/18/science/18SCI-SALAMANDER1/18SCI-SALAMANDER1-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>The newest named salamander in the animal kingdom: the reticulated siren.</media:description>
+      <media:credit>David Steen</media:credit>
+      <description>The reticulated siren is the largest vertebrate discovered in the United States in decades.</description>
+      <dc:creator>ASHER ELBEIN</dc:creator>
+      <pubDate>Fri, 14 Dec 2018 18:01:09 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Salamanders</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Amphibians</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Biology and Biochemistry</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Reptiles</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Alabama</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Florida</category>
+    </item>
+    <item>
+      <title>Ask Well: Is Eating Deli Meats Really That Bad for You?</title>
+      <link>https://www.nytimes.com/2018/12/14/well/eat/is-eating-deli-meats-really-that-bad-for-you.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/14/well/eat/is-eating-deli-meats-really-that-bad-for-you.html</guid>
+      <atom:link href="https://www.nytimes.com/2018/12/14/well/eat/is-eating-deli-meats-really-that-bad-for-you.html?partner=rss&amp;emc=rss" rel="standout"/>
+      <media:content url="https://static01.nyt.com/images/2018/12/18/well/ask-deli/merlin_99598396_059c9c18-ebe6-4ed1-af5c-d05ec60802bb-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description/>
+      <media:credit>Devin Yalkin for The New York Times</media:credit>
+      <description>Even small amounts of processed meat increase the risk of colorectal cancer.</description>
+      <dc:creator>RONI CARYN RABIN</dc:creator>
+      <pubDate>Fri, 14 Dec 2018 10:00:02 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Meat</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Colon and Colorectal Cancer</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Diet and Nutrition</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Labeling and Labels (Product)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Oils and Fats</category>
+    </item>
+    <item>
+      <title>Voices: Am I &#x2018;Old&#x2019;?</title>
+      <link>https://www.nytimes.com/2018/12/13/well/mind/age-aging-old-young-psychology.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2018/12/13/well/mind/age-aging-old-young-psychology.html</guid>
+      <atom:link rel="standout" href="https://www.nytimes.com/2018/12/13/well/mind/age-aging-old-young-psychology.html?partner=rss&amp;emc=rss"/>
+      <description>As with beauty, the meaning of &#x201C;old&#x201D; depends on the person you ask.</description>
+      <dc:creator>STEVEN PETROW</dc:creator>
+      <pubDate>Thu, 13 Dec 2018 10:01:00 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Age, Chronological</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Elderly</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Baby Boomers</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/mdes">Longevity</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Psychology and Psychologists</category>
+    </item>
+  </channel>
+</rss>
