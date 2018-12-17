@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.yacinehc.mplrss.db.AccesDonnees;
 import com.example.yacinehc.mplrss.itemDetails.ItemDetailsFragment;
 import com.example.yacinehc.mplrss.itemDetails.WebViewFragment;
 import com.example.yacinehc.mplrss.model.RSS;
@@ -117,9 +118,11 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void displayRssItems(RSS rss) {
+        AccesDonnees accesDonnees = new AccesDonnees(this);
+
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        ArrayList<RssItem> rssItems = (ArrayList<RssItem>) MyParser.getItems(rss);
-        RssItemsFragment rssItemsFragment = RssItemsFragment.newInstance(rssItems);
+        ArrayList<RssItem> rssItems = (ArrayList<RssItem>) accesDonnees.getRssItems(rss);
+        RssItemsFragment rssItemsFragment = RssItemsFragment.newInstance(rssItems, rss);
         fragmentTransaction.replace(R.id.feedListFrameLayout, rssItemsFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
@@ -133,12 +136,6 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void selectItem(RssItem rssItem) {
-        /*FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        WebViewFragment webViewFragment = WebViewFragment.newInstance(rssItem.getLink());
-        fragmentTransaction.replace(R.id.feedListFrameLayout, webViewFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();*/
-
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         ItemDetailsFragment itemDetailsFragment = ItemDetailsFragment.newInstance(rssItem);
         fragmentTransaction.replace(R.id.feedListFrameLayout, itemDetailsFragment);

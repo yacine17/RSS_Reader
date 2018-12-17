@@ -3,6 +3,8 @@ package com.example.yacinehc.mplrss.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.time.LocalDateTime;
+
 public class RssItem implements Parcelable {
     public static final Creator<RssItem> CREATOR = new Creator<RssItem>() {
         @Override
@@ -18,20 +20,20 @@ public class RssItem implements Parcelable {
     private String link;
     private String title;
     private String description;
-    private String pubDate;
+    private LocalDateTime pubDate;
 
     public RssItem(Parcel in) {
         this.link = in.readString();
         this.description = in.readString();
         this.title = in.readString();
-        this.pubDate = in.readString();
+        this.pubDate = (LocalDateTime) in.readSerializable();
     }
 
     public RssItem() {
 
     }
 
-    public RssItem(String link, String title, String description, String pubDate) {
+    public RssItem(String link, String title, String description, LocalDateTime pubDate) {
         this.link = link;
         this.title = title;
         this.description = description;
@@ -48,7 +50,7 @@ public class RssItem implements Parcelable {
         dest.writeString(link);
         dest.writeString(description);
         dest.writeString(title);
-        dest.writeString(pubDate);
+        dest.writeSerializable(pubDate);
     }
 
     public String getLink() {
@@ -85,11 +87,11 @@ public class RssItem implements Parcelable {
         this.description = description;
     }
 
-    public String getPubDate() {
+    public LocalDateTime getPubDate() {
         return pubDate;
     }
 
-    public void setPubDate(String pubDate) {
+    public void setPubDate(LocalDateTime pubDate) {
         this.pubDate = pubDate;
     }
 }

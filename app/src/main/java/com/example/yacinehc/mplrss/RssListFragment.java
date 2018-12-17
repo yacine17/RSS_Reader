@@ -27,10 +27,12 @@ import android.view.ViewGroup;
 
 import com.example.yacinehc.mplrss.db.AccesDonnees;
 import com.example.yacinehc.mplrss.model.RSS;
+import com.example.yacinehc.mplrss.model.RssItem;
 import com.example.yacinehc.mplrss.utils.DownloadHelper;
 import com.example.yacinehc.mplrss.utils.MyParser;
 import com.example.yacinehc.mplrss.utils.SimpleDialogFragment;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observer;
@@ -194,7 +196,7 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
                     String link = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_URI));
                     try {
                         RSS rss = MyParser.getRss(localPath);
-
+                        File file = new File(localPath.replace("file://", ""));
                         rss.setLink(link);
                         System.out.println("rss = " + rss);
                         AccesDonnees accesDonnees = new AccesDonnees(getActivity());
@@ -204,8 +206,13 @@ public class RssListFragment extends Fragment implements LoaderManager.LoaderCal
 
                         loaderManager.restartLoader(0, null, thisInstance);
 
+                        List<RssItem> rssItems = MyParser.getItems(rss);
+                        accesDonnees.addRssItems(rssItems, rss);
+
                         Snackbar snackbar = Snackbar.make(getView(), "Flux ajouté avec succès", Snackbar.LENGTH_LONG);
                         snackbar.show();
+
+                        file.delete();
                     } catch (Exception e) {
                         e.printStackTrace();
                         Snackbar snackbar = Snackbar.make(getView(), "Erreur lors de téléchegement, vérifiez bien le lien", Snackbar.LENGTH_SHORT);

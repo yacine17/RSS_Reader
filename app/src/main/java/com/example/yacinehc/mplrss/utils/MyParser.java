@@ -9,15 +9,17 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Formatter;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 public class MyParser {
-
     public static RSS getRss(String filePath) {
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -60,7 +62,8 @@ public class MyParser {
                     String title = element.getElementsByTagName("title").item(0).getTextContent();
                     String description = element.getElementsByTagName("description").item(0).getTextContent();
                     String link = element.getElementsByTagName("link").item(0).getTextContent();
-                    String pubDate = element.getElementsByTagName("pubDate").item(0).getTextContent();
+
+                    LocalDateTime pubDate = LocalDateTime.now();
 
                     RssItem rssItem = new RssItem(link, title, description, pubDate);
                     rssItems.add(rssItem);
