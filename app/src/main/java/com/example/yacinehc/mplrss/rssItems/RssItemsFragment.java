@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -31,16 +32,20 @@ import static android.content.Context.DOWNLOAD_SERVICE;
 public class RssItemsFragment extends Fragment {
     private static final String RSS_ITEMS = "rssItems";
     private static final String RSS_FEED = "rssFeed";
+    private static final String SCROLL_POSITION = "scrollPosition";
 
     private ArrayList<RssItem> mRssItems;
     private RSS rssFeed;
     private RssItemsAdapter rssItemsAdapter;
     private long id;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private RecyclerView rv;
+    private int scrollPosition = 0;
 
     public RssItemsFragment() {
         // Required empty public constructor
     }
+
 
     public static RssItemsFragment newInstance(ArrayList<RssItem> rssItems, RSS rssFeed) {
         RssItemsFragment fragment = new RssItemsFragment();
@@ -58,7 +63,12 @@ public class RssItemsFragment extends Fragment {
             mRssItems = getArguments().getParcelableArrayList(RSS_ITEMS);
             rssFeed = getArguments().getParcelable(RSS_FEED);
         }
+    }
 
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(SCROLL_POSITION, ((LinearLayoutManager) rv.getLayoutManager()).findFirstVisibleItemPosition());
     }
 
     @Override
@@ -66,7 +76,7 @@ public class RssItemsFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         swipeRefreshLayout = new SwipeRefreshLayout(getContext());
-        RecyclerView rv = new RecyclerView(getContext());
+        rv = new RecyclerView(getContext());
         rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         rssItemsAdapter = new RssItemsAdapter(mRssItems);
         rv.setAdapter(rssItemsAdapter);
@@ -84,6 +94,10 @@ public class RssItemsFragment extends Fragment {
             }
         });
 
+        if (savedInstanceState != null) {
+
+            rv.scrollToPosition(savedInstanceState.getInt(SCROLL_POSITION, 0));
+        }
 
         return swipeRefreshLayout;
     }
@@ -111,37 +125,43 @@ public class RssItemsFragment extends Fragment {
     class MyBroadcastReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            DownloadManager downloadManager = (DownloadManager) getActivity().getSystemService(DOWNLOAD_SERVICE);
-            long reference = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
-            if (id == reference) {
-                DownloadManager.Query query = new DownloadManager.Query();
-                query.setFilterById(reference);
-                Cursor cursor = downloadManager.query(query);
-                if (cursor.moveToFirst()) {
-                    String localPath = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI));
-                    String link = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_URI));
-                    try {
-                        RSS rss = MyParser.getRss(localPath);
-                        rss.setLink(link);
-                        File file = new File(localPath.replace("file://", ""));
-                        System.out.println("rss = " + rss);
+            if (getActivity() != null) {
+                DownloadManager downloadManager = (DownloadManager) getActivity().getSystemService(DOWNLOAD_SERVICE);
+                long reference = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
+                if (id == reference) {
+                    DownloadManager.Query query = new DownloadManager.Query();
+                    query.setFilterById(reference);
+                    Cursor cursor = downloadManager.query(query);
+                    if (cursor.moveToFirst()) {
+                        String localPath = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI));
+                        String link = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_URI));
+                        try {
+                            RSS rss = MyParser.getRss(localPath);
+                            rss.setLink(link);
+                            File file = new File(localPath.replace("file://", ""));
+                            System.out.println("rss = " + rss);
 
-                        AccesDonnees accesDonnees = new AccesDonnees(getActivity());
+                            AccesDonnees accesDonnees = new AccesDonnees(getActivity());
 
-                        final List<RssItem> rssItems = MyParser.getItems(rss);
-                        accesDonnees.addRssItems(rssItems, rss);
+                            final List<RssItem> rssItems = MyParser.getItems(rss);
+                            accesDonnees.addRssItems(rssItems, rss);
 
-                        RssItemsFragment.this.setmRssItems((ArrayList<RssItem>) accesDonnees.getRssItems(rss));
-                        RssItemsFragment.this.rssItemsAdapter.notifyDataSetChanged();
+                            RssItemsFragment.this.setmRssItems((ArrayList<RssItem>) accesDonnees.getRssItems(rss));
+                            RssItemsFragment.this.rssItemsAdapter.notifyDataSetChanged();
+                            if (RssItemsFragment.this.swipeRefreshLayout.isRefreshing()) {
+                                RssItemsFragment.this.swipeRefreshLayout.setRefreshing(false);
+                            }
+                            System.out.println("SwipeRefreshLayout");
+
+                            file.delete();
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+
+                        }
                         if (RssItemsFragment.this.swipeRefreshLayout.isRefreshing()) {
                             RssItemsFragment.this.swipeRefreshLayout.setRefreshing(false);
                         }
-                        System.out.println("SwipeRefreshLayout");
-
-                        file.delete();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-
                     }
                 }
             }

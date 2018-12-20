@@ -35,7 +35,9 @@ public class DownloadHelper {
 
         request.setDescription(uri.toString());
         request.allowScanningByMediaScanner();
-        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        if (this.notif) {
+            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        }
 
         id = downloadManager.enqueue(request);
 

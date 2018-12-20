@@ -106,7 +106,7 @@ public class AccesDonnees {
         list.sort(new Comparator<RssItem>() {
             @Override
             public int compare(RssItem o1, RssItem o2) {
-                return o1.getPubDate().compareTo(o2.getPubDate());
+                return -1 * o1.getPubDate().compareTo(o2.getPubDate());
             }
         });
 
